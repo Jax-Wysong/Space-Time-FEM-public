@@ -7,7 +7,7 @@ This repository collects space-time finite element experiments built on Argonne 
   - `ghost_MMS/`: Manufactured-solution verification problems in 1+1 and 2+1 dimensions. There is a write-up of the PDE setup/discretization and results that verify correct implementation.
   - `ghost_testing_IC_V/`: Initial-condition and potential studies for the same model, preprint of paper will be available soon.
 - `numerical_relativity/`: Space-time solver experiments for gravitational radiation from a non-rotating black hole (`gravitational_radiation_non-rotating_black_hole/`). Residuals, Jacobians, and potentials are assembled in PETSc before evolving with specified source term.
-  - Current work is attempting to use our framework to reproduce results from Sopuerta and Laguna: https://doi.org/10.48550/arXiv.gr-qc/0512028
+  - Current side-project is attempting to use this framework to reproduce results from Sopuerta and Laguna: https://doi.org/10.48550/arXiv.gr-qc/0512028
 - `practice_problems/`: Baseline implementations of linear heat (homogenous) and wave equations (nonhomogenous) (`heat_eqn_linear/` and `wave_eqn_linear/`). These provide small drivers, element stiffness/residual routines, and job scripts that mirror the larger projects.
   - Anyone interested in using this code for a different PDE should refer to these examples to understand how implementation looks. 
   - There are PDF files containing PDE/discretization setup and verification.
