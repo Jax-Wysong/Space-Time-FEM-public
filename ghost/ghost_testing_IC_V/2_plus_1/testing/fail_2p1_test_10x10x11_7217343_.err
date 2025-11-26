@@ -1,0 +1,123 @@
+[0]PETSC ERROR: --------------------- Error Message --------------------------------------------------------------
+[0]PETSC ERROR: User-defined fatal error!
+Tried to specify different potential V terms, only turn on one of these
+
+Potential options:
+1) -lam22 1.0 -> V = lambda * phi^2 * chi^2
+2) -lam_phi6 1.0 -> 1/2 m^2 W - lambda/6 W^2 + g/6 W^3 (W = phi^2 + chi^2)
+
+[0]PETSC ERROR: WARNING! There are unused option(s) set! Could be the program crashed before usage or a spelling mistake, etc!
+[0]PETSC ERROR:   Option left: name:-fieldsplit_0_ksp_type value: preonly source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_0_pc_factor_mat_solver_type value: mumps source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_0_pc_factor_shift_amount value: 1e-12 source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_0_pc_factor_shift_type value: NONZERO source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_0_pc_type value: lu source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_1_ksp_type value: preonly source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_1_pc_factor_mat_solver_type value: mumps source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_1_pc_factor_shift_amount value: 1e-12 source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_1_pc_factor_shift_type value: NONZERO source: command line
+[0]PETSC ERROR:   Option left: name:-fieldsplit_1_pc_type value: lu source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_diagonal_scale (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_diagonal_scale_fix (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_gmres_modifiedgramschmidt (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_gmres_restart value: 50 source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_max_it value: 10000 source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_monitor (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-ksp_type value: fgmres source: command line
+[0]PETSC ERROR:   Option left: name:-options_view (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_0_fields value: 0,1 source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_1_fields value: 2,3 source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_block_size value: 4 source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_off_diag_use_amat (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_schur_fact_type value: upper source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_schur_precondition value: a11 source: command line
+[0]PETSC ERROR:   Option left: name:-pc_fieldsplit_type value: schur source: command line
+[0]PETSC ERROR:   Option left: name:-pc_type value: fieldsplit source: command line
+[0]PETSC ERROR:   Option left: name:-snes_converged_reason (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-snes_ksp_ew (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-snes_linesearch_type value: basic source: command line
+[0]PETSC ERROR:   Option left: name:-snes_max_it value: 1000 source: command line
+[0]PETSC ERROR:   Option left: name:-snes_monitor (no value) source: command line
+[0]PETSC ERROR:   Option left: name:-snes_rtol value: 1e-8 source: command line
+[0]PETSC ERROR:   Option left: name:-snes_type value: newtonls source: command line
+[0]PETSC ERROR: See https://petsc.org/release/faq/ for trouble shooting.
+[0]PETSC ERROR: Petsc Release Version 3.21.5, unknown 
+[0]PETSC ERROR: .././ghost_testing_IC_V_2p1 on a linux-gnu-c-opt named node042 by jgwysong@jacks.local Sun Nov 16 18:03:21 2025
+[0]PETSC ERROR: Configure options --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90 --with-debugging=0 --with-shared-libraries --with-scalar-type=real --with-mpi=1 --download-cmake --download-scalapack --download-superlu --download-hypre=1 --download-fblaslapack=1 --download-mumps=1 --download-metis=1 --download-suitesparse=1 PETSC_ARCH=linux-gnu-c-opt --with-clean
+[0]PETSC ERROR: #1 main() at src/main.c:126
+[0]PETSC ERROR: PETSc Option Table entries:
+[0]PETSC ERROR: -A 1.0 (source: command line)
+[0]PETSC ERROR: -C 1.0 (source: command line)
+[0]PETSC ERROR: -dm_view (source: command line)
+[0]PETSC ERROR: -fieldsplit_0_ksp_type preonly (source: command line)
+[0]PETSC ERROR: -fieldsplit_0_pc_factor_mat_solver_type mumps (source: command line)
+[0]PETSC ERROR: -fieldsplit_0_pc_factor_shift_amount 1e-12 (source: command line)
+[0]PETSC ERROR: -fieldsplit_0_pc_factor_shift_type NONZERO (source: command line)
+[0]PETSC ERROR: -fieldsplit_0_pc_type lu (source: command line)
+[0]PETSC ERROR: -fieldsplit_1_ksp_type preonly (source: command line)
+[0]PETSC ERROR: -fieldsplit_1_pc_factor_mat_solver_type mumps (source: command line)
+[0]PETSC ERROR: -fieldsplit_1_pc_factor_shift_amount 1e-12 (source: command line)
+[0]PETSC ERROR: -fieldsplit_1_pc_factor_shift_type NONZERO (source: command line)
+[0]PETSC ERROR: -fieldsplit_1_pc_type lu (source: command line)
+[0]PETSC ERROR: -ghost -1.0 (source: command line)
+[0]PETSC ERROR: -IC 5 (source: command line)
+[0]PETSC ERROR: -ksp_diagonal_scale (source: command line)
+[0]PETSC ERROR: -ksp_diagonal_scale_fix (source: command line)
+[0]PETSC ERROR: -ksp_gmres_modifiedgramschmidt (source: command line)
+[0]PETSC ERROR: -ksp_gmres_restart 50 (source: command line)
+[0]PETSC ERROR: -ksp_max_it 10000 (source: command line)
+[0]PETSC ERROR: -ksp_monitor (source: command line)
+[0]PETSC ERROR: -ksp_type fgmres (source: command line)
+[0]PETSC ERROR: -lam22 1.0 (source: command line)
+[0]PETSC ERROR: -lam_phi6 1.0 (source: command line)
+[0]PETSC ERROR: -log_view (source: command line)
+[0]PETSC ERROR: -mchi2 1.0 (source: command line)
+[0]PETSC ERROR: -memory_view (source: command line)
+[0]PETSC ERROR: -mphi2 1.0 (source: command line)
+[0]PETSC ERROR: -nt 11 (source: command line)
+[0]PETSC ERROR: -nx 10 (source: command line)
+[0]PETSC ERROR: -ny 10 (source: command line)
+[0]PETSC ERROR: -options_view (source: command line)
+[0]PETSC ERROR: -osc_dphi 0.0 (source: command line)
+[0]PETSC ERROR: -osc_r 1.0 (source: command line)
+[0]PETSC ERROR: -osc_sigma 0.05 (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_0_fields 0,1 (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_1_fields 2,3 (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_block_size 4 (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_off_diag_use_amat (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_schur_fact_type upper (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_schur_precondition a11 (source: command line)
+[0]PETSC ERROR: -pc_fieldsplit_type schur (source: command line)
+[0]PETSC ERROR: -pc_type fieldsplit (source: command line)
+[0]PETSC ERROR: -pw_dphi 0.0 (source: command line)
+[0]PETSC ERROR: -pw_r 1.0 (source: command line)
+[0]PETSC ERROR: -pw_sigma -1 (source: command line)
+[0]PETSC ERROR: -snes_converged_reason (source: command line)
+[0]PETSC ERROR: -snes_ksp_ew (source: command line)
+[0]PETSC ERROR: -snes_linesearch_type basic (source: command line)
+[0]PETSC ERROR: -snes_max_it 1000 (source: command line)
+[0]PETSC ERROR: -snes_monitor (source: command line)
+[0]PETSC ERROR: -snes_rtol 1e-8 (source: command line)
+[0]PETSC ERROR: -snes_type newtonls (source: command line)
+[0]PETSC ERROR: -t0 0.0 (source: command line)
+[0]PETSC ERROR: -tF 1.0 (source: command line)
+[0]PETSC ERROR: -xL 0.0 (source: command line)
+[0]PETSC ERROR: -xR 1.0 (source: command line)
+[0]PETSC ERROR: -yL 0.0 (source: command line)
+[0]PETSC ERROR: -yR 1.0 (source: command line)
+[0]PETSC ERROR: ----------------End of Error Message -------send entire error message to petsc-maint@mcs.anl.gov----------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+  Proc: [[34856,1],0]
+  Errorcode: 83
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+prterun has exited due to process rank 0 with PID 0 on node node042 calling
+"abort". This may have caused other processes in the application to be
+terminated by signals sent by prterun (as reported here).
+--------------------------------------------------------------------------
+ 

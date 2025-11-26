@@ -1,0 +1,19 @@
+DM Object: 1 MPI process
+  type: da
+Processor [0] M 10 N 10 P 11 m 1 n 1 p 1 w 4 s 1
+X range of indices: 0 10, Y range of indices: 0 10, Z range of indices: 0 11
+
+
+Initial condtion options (-IC #):
+1) Plane Wave
+2) Gaussian Packet
+
+4) Phase-Correlated Two-Field Plane Waves
+5) Oscillon-Like, Time-Symmetric Seeds
+
+
+Potential options:
+1) -lam22 1.0 -> V = lambda * phi^2 * chi^2
+2) -lam_phi6 1.0 -> V = 1/2 m^2 W - lambda/4 W^2 + g/6 W^3 (W = phi^2 + chi^2)
+
+!!! TRIED TO SPECIFY DIFFERENT POTENTIAL V TERMs !!!

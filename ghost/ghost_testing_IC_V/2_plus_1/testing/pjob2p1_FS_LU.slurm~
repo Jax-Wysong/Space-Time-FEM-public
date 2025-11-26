@@ -1,0 +1,93 @@
+#!/bin/bash
+# ---------- Slurm directives ----------
+#SBATCH --job-name=2p1Test       # job name
+#SBATCH --partition=quickq       # queue/partition
+#SBATCH --nodes=1                 # total nodes         
+#SBATCH --ntasks-per-node=1      # MPI ranks per node  
+#SBATCH --mem=10G
+#SBATCH --time=0-00:10:00         # wall-clock limit
+#SBATCH --output=fail_2p1_test_10x10x11.out     # stdout+stderr file (%j = job-id)
+#SBATCH --error=fail_2p1_test_10x10x11_%j_.err      # optional separate stderr
+
+# ========= Initial condtion options (-IC #): ====================
+#  1) Plane Wave
+#  2) Gaussian Packet
+#
+#  4) Phase-Correlated Two-Field Plane Waves
+#  5) Oscillon-Like, Time-Symmetric Seeds
+
+Initial_Condition=5  # pick 1, 2, 4, 5
+# ===============================================================
+
+### Potential V knobs ###
+### Only have one of these on at a time ###
+lam_22=1.0     # V = phi^2 chi^2
+lam_phi6=1.0   # V = 1/2 m^2 W + 1/4 W^2 + 1/6 W^3 (W = phi^2 + chi^2)
+
+### IC 4 ###
+pw_sigma=-1    # Plane wave sigma (+1) co-propagation (-1) counter-propagation
+pw_r=1.0       # amplitude ratio r > 0
+pw_dphi=0.0    # relative phase in [0, pi]
+
+### IC 5 ###
+osc_sigma=0.05    # width
+osc_r=1.0         # amplitude ratio, r > 0
+osc_dphi=0.0      # phase shift
+osc_carrier=0.0  # C controls wave number k0 = C * 2 pi / L. So, with -IC 5, we have  -C 0.0 means no carrier. -C "$osc_carrier" means carrier with this value of C
+
+# ---- needed for multi-node runs on Innovator for some reason ----
+export UCX_NET_DEVICES=mlx5_0:1   
+export OMPI_MCA_coll_hcoll_enable=0
+
+EXE=.././ghost_testing_IC_V_2p1
+
+# ---- run ----
+   mpirun -np ${SLURM_NTASKS} ${EXE} \
+   -nx 10 -ny 10 -nt 11 \
+   -xL 0.0 -xR 1.0 \
+   -yL 0.0 -yR 1.0 \
+   -t0 0.0 -tF 1.0 \
+   -mphi2 1.0 -mchi2 1.0 \
+   -A 1.0 \
+   -C 1.0 \
+   -lam22 "$lam_22" \
+   -lam_phi6 "$lam_phi6" \
+   -ghost -1.0 \
+   -IC "$Initial_Condition" \
+   -pw_sigma "$pw_sigma" \
+   -pw_r "$pw_r" \
+   -pw_dphi "$pw_dphi" \
+   -osc_sigma "$osc_sigma" \
+   -osc_r "$osc_r" \
+   -osc_dphi "$osc_dphi" \
+   -dm_view \
+   -snes_monitor -snes_converged_reason \
+   -snes_rtol 1e-8 \
+   -snes_type newtonls \
+   -snes_linesearch_type basic \
+   -snes_max_it 1000 \
+   -ksp_monitor \
+   -memory_view \
+   -log_view \
+   -ksp_type fgmres -snes_ksp_ew -ksp_max_it 10000 \
+   -ksp_gmres_modifiedgramschmidt \
+   -ksp_gmres_restart 50 \
+   -options_view \
+   -ksp_diagonal_scale -ksp_diagonal_scale_fix \
+   -pc_type fieldsplit -pc_fieldsplit_block_size 4 \
+   -pc_fieldsplit_0_fields 0,1 \
+   -pc_fieldsplit_1_fields 2,3 \
+   -pc_fieldsplit_type schur \
+   -pc_fieldsplit_schur_precondition a11 \
+   -pc_fieldsplit_schur_fact_type upper \
+   -pc_fieldsplit_off_diag_use_amat \
+   -fieldsplit_0_ksp_type preonly \
+   -fieldsplit_0_pc_type lu \
+   -fieldsplit_0_pc_factor_mat_solver_type mumps \
+   -fieldsplit_0_pc_factor_shift_type NONZERO \
+   -fieldsplit_0_pc_factor_shift_amount 1e-12 \
+   -fieldsplit_1_ksp_type preonly \
+   -fieldsplit_1_pc_type lu \
+   -fieldsplit_1_pc_factor_mat_solver_type mumps \
+   -fieldsplit_1_pc_factor_shift_type NONZERO \
+   -fieldsplit_1_pc_factor_shift_amount 1e-12

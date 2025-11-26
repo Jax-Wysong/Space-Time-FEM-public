@@ -1,0 +1,29 @@
+#ifndef APPCTX_H
+#define APPCTX_H
+
+#include <petscsnes.h>
+#include <petscsys.h>
+#include <petscdm.h>
+#include <petscdmda.h>
+#include <petscmat.h>
+#include <petscvec.h>
+#include <petscmath.h>
+
+typedef struct {
+    PetscInt nx, nt, IC, Loop;
+    PetscReal hx, ht;
+    PetscReal xL, xR;
+    PetscReal t0, tF;
+	PetscReal mphi2, mchi2;
+	PetscReal A;
+	PetscReal lam22;
+	PetscReal ghost;
+	PetscReal L;
+	PetscScalar A_time[4][4];
+	PetscScalar A_space[4][4];
+	PetscScalar A_standard[4][4];
+	DM dm;
+	
+} AppCtx;
+
+#endif /* APPCTX_H */
