@@ -1,0 +1,17 @@
+free(): double free detected in tcache 2
+slurmstepd: error:  mpi/pmix_v3: _errhandler: node008 [3]: pmixp_client_v2.c:211: Error handler invoked: status = -25, source = [slurm.pmix.7318116.0:126]
+slurmstepd: error: *** STEP 7318116.0 ON node005 CANCELLED AT 2025-12-23T21:47:22 ***
+srun: error: node008: tasks 116,126: Killed
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: error: node007: tasks 69,86: Killed
+srun: error: node006: tasks 32-36,38,42-44,46-50,53-54,56-63: Killed
+srun: error: node005: tasks 8,27: Killed
+srun: error: node008: task 123: Killed
+srun: error: node008: tasks 96,98,105-106: Killed
+srun: error: node006: tasks 37,39-41,45,51-52,55: Killed
+srun: error: node007: tasks 64-68,70-85,87-95: Killed
+srun: error: node005: tasks 0-7,9-26,28-31: Killed
+srun: error: node008: task 125: Killed
+srun: error: node008: tasks 97,101,104,111,117: Killed
+srun: error: node008: tasks 107-110,112,118-122,124,127: Killed
+srun: error: node008: tasks 99-100,102-103,113-115: Killed
