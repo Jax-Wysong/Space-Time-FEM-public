@@ -1,0 +1,1999 @@
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2501
+Processor [1] M 100 N 10001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2501 5001
+Processor [2] M 100 N 10001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5001 7501
+Processor [3] M 100 N 10001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7501 10001
+
+
+Initial condtion options (-IC #):
+1) Plane Wave
+2) Gaussian Packet
+3) Colored-Noise Spectra
+4) Phase-Correlated Two-Field Plane Waves
+5) Oscillon-Like, Time-Symmetric Seeds
+6) Domain-Wall/Bubble Data
+
+sigma = 0.05
+dphi = 0.
+r = 1.
+carrier = 0.
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10001
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+Ghost = -1.
+xL = 0., xR = 1.
+t0 = 0., tF = 100.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,100.000], nt=10001) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2501
+Processor [1] M 100 N 10001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2501 5001
+Processor [2] M 100 N 10001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5001 7501
+Processor [3] M 100 N 10001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7501 10001
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.679290051942e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.207506644580e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 1.929125454347e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.558857033698e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 5.108277984578e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.323570813942e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 3.650050632328e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.031342611341e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 7.280717904797e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 3.070375132872e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+ 11 SNES Function norm 1.377605124628e-13
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 11
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2526
+Processor [1] M 100 N 10101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2526 5051
+Processor [2] M 100 N 10101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5051 7576
+Processor [3] M 100 N 10101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7576 10101
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10101
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 101.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,101.000], nt=10101) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2526
+Processor [1] M 100 N 10101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2526 5051
+Processor [2] M 100 N 10101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5051 7576
+Processor [3] M 100 N 10101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7576 10101
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.693044677402e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.209294903470e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.091053578791e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.615988439185e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 5.469423159280e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.470977451383e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 4.635989479000e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.397683331967e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 9.932837398087e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 4.676376966226e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+ 11 SNES Function norm 1.545006793944e-13
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 11
+
+
+==========================================================
+
+  converged (reason=2). Growing tF -> 102.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2551
+Processor [1] M 100 N 10201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2551 5101
+Processor [2] M 100 N 10201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5101 7651
+Processor [3] M 100 N 10201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7651 10201
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10201
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 102.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,102.000], nt=10201) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2551
+Processor [1] M 100 N 10201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2551 5101
+Processor [2] M 100 N 10201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5101 7651
+Processor [3] M 100 N 10201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7651 10201
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.705039933236e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.214290635468e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.190735980706e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.678080818945e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 5.458236818027e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.946126739349e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 5.289923939526e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.393856058565e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 4.561465652787e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 1.546338989787e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+ 11 SNES Function norm 4.515601846259e-14
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 11
+
+
+==========================================================
+
+  converged (reason=2). Growing tF -> 103.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2576
+Processor [1] M 100 N 10301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2576 5151
+Processor [2] M 100 N 10301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5151 7726
+Processor [3] M 100 N 10301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7726 10301
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10301
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 103.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,103.000], nt=10301) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2576
+Processor [1] M 100 N 10301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2576 5151
+Processor [2] M 100 N 10301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5151 7726
+Processor [3] M 100 N 10301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7726 10301
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.711772860937e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.217484646380e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.227612036995e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.846540682870e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 5.565166742244e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 3.793337321865e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 7.107864270533e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.440724788870e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 9.888813666355e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 2.305192572190e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+ 11 SNES Function norm 4.493811702097e-14
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 11
+
+
+==========================================================
+
+  converged (reason=2). Growing tF -> 104.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2601
+Processor [1] M 100 N 10401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2601 5201
+Processor [2] M 100 N 10401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5201 7801
+Processor [3] M 100 N 10401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7801 10401
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10401
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 104.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,104.000], nt=10401) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2601
+Processor [1] M 100 N 10401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2601 5201
+Processor [2] M 100 N 10401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5201 7801
+Processor [3] M 100 N 10401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7801 10401
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.721666757485e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.217811978098e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.222898951307e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 7.032726440735e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 5.711774226859e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 4.406670827178e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.159886514309e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 2.260139919329e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 8.597988531658e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 8.386379442033e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 10
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 105.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2626
+Processor [1] M 100 N 10501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2626 5251
+Processor [2] M 100 N 10501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5251 7876
+Processor [3] M 100 N 10501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7876 10501
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10501
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 105.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,105.000], nt=10501) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2626
+Processor [1] M 100 N 10501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2626 5251
+Processor [2] M 100 N 10501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5251 7876
+Processor [3] M 100 N 10501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7876 10501
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.739794940848e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.223243112808e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.231557996599e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 7.414227883632e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 6.134363140651e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 4.722003347861e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.913127034236e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 3.760814808466e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.849480023048e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 1.855621751117e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 10
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 106.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2651
+Processor [1] M 100 N 10601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2651 5301
+Processor [2] M 100 N 10601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5301 7951
+Processor [3] M 100 N 10601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 7951 10601
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10601
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 106.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,106.000], nt=10601) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2651
+Processor [1] M 100 N 10601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2651 5301
+Processor [2] M 100 N 10601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5301 7951
+Processor [3] M 100 N 10601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 7951 10601
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.746768082520e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.222045705974e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.251015175634e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 8.278603604638e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 7.260416089955e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 5.262900513037e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 2.582444381877e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 4.229151808649e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.476140876912e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 2.511309612430e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 10
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 107.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2676
+Processor [1] M 100 N 10701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2676 5351
+Processor [2] M 100 N 10701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5351 8026
+Processor [3] M 100 N 10701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8026 10701
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10701
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 107.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,107.000], nt=10701) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2676
+Processor [1] M 100 N 10701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2676 5351
+Processor [2] M 100 N 10701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5351 8026
+Processor [3] M 100 N 10701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8026 10701
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.755919291085e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.225191238253e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.335987386066e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 9.105039777085e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 8.887383065487e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 5.573040265321e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 3.060669153105e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 5.731431513394e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 5.734229447816e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 4.565959509045e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 10
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 108.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2701
+Processor [1] M 100 N 10801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2701 5401
+Processor [2] M 100 N 10801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5401 8101
+Processor [3] M 100 N 10801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8101 10801
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10801
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 108.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,108.000], nt=10801) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2701
+Processor [1] M 100 N 10801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2701 5401
+Processor [2] M 100 N 10801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5401 8101
+Processor [3] M 100 N 10801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8101 10801
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.767615078088e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.228810303546e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.576371204858e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 9.654793290396e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.144287257880e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 5.796697675674e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 3.465251395177e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 9.979217578689e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 2.221671415711e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 2.185774837383e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 4.796980531110e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 109.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2726
+Processor [1] M 100 N 10901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2726 5451
+Processor [2] M 100 N 10901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5451 8176
+Processor [3] M 100 N 10901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8176 10901
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 10901
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 109.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,109.000], nt=10901) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 10901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2726
+Processor [1] M 100 N 10901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2726 5451
+Processor [2] M 100 N 10901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5451 8176
+Processor [3] M 100 N 10901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8176 10901
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.778392354275e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.233644636212e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 2.855708065872e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 1.030870318558e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.272849729274e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 6.557037666804e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 3.855941583175e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.535808454466e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 4.829952438814e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 1.308576922625e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 3.808477730103e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 1.152395297971e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 12
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 110.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2751
+Processor [1] M 100 N 11001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2751 5501
+Processor [2] M 100 N 11001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5501 8251
+Processor [3] M 100 N 11001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8251 11001
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11001
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 110.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,110.000], nt=11001) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2751
+Processor [1] M 100 N 11001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2751 5501
+Processor [2] M 100 N 11001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5501 8251
+Processor [3] M 100 N 11001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8251 11001
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.785109387765e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.241655726946e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.115785208608e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 1.180141665204e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.387074842844e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 9.990403879511e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 4.528862312876e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.060386273253e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 3.090232950470e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 2.008626006113e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 5.776189065423e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 111.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2776
+Processor [1] M 100 N 11101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2776 5551
+Processor [2] M 100 N 11101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5551 8326
+Processor [3] M 100 N 11101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8326 11101
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11101
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 111.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,111.000], nt=11101) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2776
+Processor [1] M 100 N 11101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2776 5551
+Processor [2] M 100 N 11101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5551 8326
+Processor [3] M 100 N 11101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8326 11101
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.796330091977e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.255458996016e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.378878417917e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 1.569678826882e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.610879975823e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 1.803445572111e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 5.403475146049e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.908406393242e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.380578283955e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 2.164427950641e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 1.472208153327e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 112.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2801
+Processor [1] M 100 N 11201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2801 5601
+Processor [2] M 100 N 11201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5601 8401
+Processor [3] M 100 N 11201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8401 11201
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11201
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 112.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,112.000], nt=11201) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2801
+Processor [1] M 100 N 11201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2801 5601
+Processor [2] M 100 N 11201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5601 8401
+Processor [3] M 100 N 11201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8401 11201
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.807716292700e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.279979706627e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.543812061771e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 1.787805284846e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.876681086148e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.433486626575e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 5.527572141129e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 2.532568626241e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.146147003808e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 5.433496989928e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 2.600636544942e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 113.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2826
+Processor [1] M 100 N 11301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2826 5651
+Processor [2] M 100 N 11301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5651 8476
+Processor [3] M 100 N 11301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8476 11301
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11301
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 113.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,113.000], nt=11301) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2826
+Processor [1] M 100 N 11301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2826 5651
+Processor [2] M 100 N 11301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5651 8476
+Processor [3] M 100 N 11301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8476 11301
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.813147960292e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.293823059524e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.615488527426e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 1.899656065893e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.198511596448e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.699053047556e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 7.374355232827e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 2.863022500794e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.027898731858e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 9.600117053619e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 10
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 114.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2851
+Processor [1] M 100 N 11401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2851 5701
+Processor [2] M 100 N 11401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5701 8551
+Processor [3] M 100 N 11401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8551 11401
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11401
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 114.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,114.000], nt=11401) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2851
+Processor [1] M 100 N 11401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2851 5701
+Processor [2] M 100 N 11401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5701 8551
+Processor [3] M 100 N 11401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8551 11401
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.822744217157e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.313254006356e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.667761831275e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.089506243466e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.496227551258e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.693611766193e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.166413479934e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 3.197015052674e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 2.008828592637e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 4.929332159769e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 4.069070349153e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 115.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2876
+Processor [1] M 100 N 11501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2876 5751
+Processor [2] M 100 N 11501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5751 8626
+Processor [3] M 100 N 11501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8626 11501
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11501
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 115.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,115.000], nt=11501) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2876
+Processor [1] M 100 N 11501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2876 5751
+Processor [2] M 100 N 11501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5751 8626
+Processor [3] M 100 N 11501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8626 11501
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.831419187987e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.323579081428e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.658848766062e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.058610941542e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.612544247952e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.375896997380e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.530905279737e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 9.760171811905e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 3.659204959135e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 3.607367524278e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 2.683294885901e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 116.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2901
+Processor [1] M 100 N 11601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2901 5801
+Processor [2] M 100 N 11601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5801 8701
+Processor [3] M 100 N 11601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8701 11601
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11601
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 116.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,116.000], nt=11601) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2901
+Processor [1] M 100 N 11601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2901 5801
+Processor [2] M 100 N 11601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5801 8701
+Processor [3] M 100 N 11601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8701 11601
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.840702660092e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.337844339821e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.650934629357e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.026647990160e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.666623262893e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.194566975545e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.606489836348e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 3.460080539701e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.034433444038e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 6.968266232158e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 4.029197841556e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 117.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2926
+Processor [1] M 100 N 11701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2926 5851
+Processor [2] M 100 N 11701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5851 8776
+Processor [3] M 100 N 11701 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8776 11701
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11701
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 117.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,117.000], nt=11701) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2926
+Processor [1] M 100 N 11701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2926 5851
+Processor [2] M 100 N 11701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5851 8776
+Processor [3] M 100 N 11701 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8776 11701
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.848312292505e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.342114796996e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.702472825785e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.152591066017e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.772257722033e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.325934974062e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.633082097976e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 7.722015779410e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.153426547917e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 9.279930487752e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 5.601938772659e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 11
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 118.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2951
+Processor [1] M 100 N 11801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2951 5901
+Processor [2] M 100 N 11801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5901 8851
+Processor [3] M 100 N 11801 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8851 11801
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11801
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 118.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,118.000], nt=11801) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2951
+Processor [1] M 100 N 11801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2951 5901
+Processor [2] M 100 N 11801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5901 8851
+Processor [3] M 100 N 11801 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8851 11801
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.859143909560e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.346337648402e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 3.807586200066e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.123104819946e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.751394796426e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.335239994592e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.643203794171e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.172127091908e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 7.108166417848e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 3.461988145520e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 1.483639209966e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 7.866758978528e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 12
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 119.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 2976
+Processor [1] M 100 N 11901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 2976 5951
+Processor [2] M 100 N 11901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 5951 8926
+Processor [3] M 100 N 11901 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 8926 11901
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 11901
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 119.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,119.000], nt=11901) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 11901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 2976
+Processor [1] M 100 N 11901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 2976 5951
+Processor [2] M 100 N 11901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 5951 8926
+Processor [3] M 100 N 11901 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 8926 11901
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.863755824938e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.348466687043e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.016794244537e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.486181274870e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.910327237301e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.830637577464e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.796663106305e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.526214332080e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 2.210694220043e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 1.677466205877e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 2.183133641765e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 1.751911979315e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 12
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 120.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3001
+Processor [1] M 100 N 12001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3001 6001
+Processor [2] M 100 N 12001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6001 9001
+Processor [3] M 100 N 12001 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9001 12001
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12001
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 120.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,120.000], nt=12001) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3001
+Processor [1] M 100 N 12001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3001 6001
+Processor [2] M 100 N 12001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6001 9001
+Processor [3] M 100 N 12001 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9001 12001
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.872594124052e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.347751015092e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.218763804391e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 4.033090201444e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 3.286919443488e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 4.767573092060e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 1.641663539356e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.143276260177e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.031549857122e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 5.690941875509e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 1.086151891787e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 6.909769504245e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 12
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 121.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3026
+Processor [1] M 100 N 12101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3026 6051
+Processor [2] M 100 N 12101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6051 9076
+Processor [3] M 100 N 12101 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9076 12101
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12101
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 121.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,121.000], nt=12101) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3026
+Processor [1] M 100 N 12101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3026 6051
+Processor [2] M 100 N 12101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6051 9076
+Processor [3] M 100 N 12101 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9076 12101
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.883739669616e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.351415003997e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.387262427677e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 5.757628158809e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 3.438655427853e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 6.240443045667e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 2.052631861636e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.260906535571e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 4.935968535388e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 4.019058080151e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 1.512268481847e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 8.505981045242e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 12
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 122.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3051
+Processor [1] M 100 N 12201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3051 6101
+Processor [2] M 100 N 12201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6101 9151
+Processor [3] M 100 N 12201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9151 12201
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12201
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 122.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,122.000], nt=12201) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3051
+Processor [1] M 100 N 12201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3051 6101
+Processor [2] M 100 N 12201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6101 9151
+Processor [3] M 100 N 12201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9151 12201
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.889347708226e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.352183186517e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.577338313964e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.596073618953e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 4.225479911960e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 8.454395247533e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 2.209097987137e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.343476186093e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 9.189788993982e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 3.562004041515e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 9.164602736647e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 2.150888261744e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 13 SNES Function norm 7.521232485049e-13
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 13
+
+
+==========================================================
+
+  converged (reason=2). Growing tF -> 123.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3076
+Processor [1] M 100 N 12301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3076 6151
+Processor [2] M 100 N 12301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6151 9226
+Processor [3] M 100 N 12301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9226 12301
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12301
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 123.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,123.000], nt=12301) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3076
+Processor [1] M 100 N 12301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3076 6151
+Processor [2] M 100 N 12301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6151 9226
+Processor [3] M 100 N 12301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9226 12301
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.898155447435e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.357547891244e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.706172460435e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.799193114107e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.224072110735e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 5.109708754276e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 2.874847132188e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 2.711978410957e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 9.238151339616e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 1.386655037562e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 4.152989766014e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 2.538930115957e-10
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 13 SNES Function norm 3.224954992556e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 13
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 124.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3101
+Processor [1] M 100 N 12401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3101 6201
+Processor [2] M 100 N 12401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6201 9301
+Processor [3] M 100 N 12401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9301 12401
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12401
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 124.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,124.000], nt=12401) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3101
+Processor [1] M 100 N 12401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3101 6201
+Processor [2] M 100 N 12401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6201 9301
+Processor [3] M 100 N 12401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9301 12401
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.907431305626e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.360590675933e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.731862781390e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.695001294072e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.576482072227e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 3.892671820248e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 3.077899564511e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 3.075735965856e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.196703137221e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 5.279392976830e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 1.223358004208e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 2.154706459894e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 13 SNES Function norm 1.202045048992e-10
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 13
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 125.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3126
+Processor [1] M 100 N 12501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3126 6251
+Processor [2] M 100 N 12501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6251 9376
+Processor [3] M 100 N 12501 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9376 12501
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12501
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 125.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,125.000], nt=12501) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3126
+Processor [1] M 100 N 12501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3126 6251
+Processor [2] M 100 N 12501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6251 9376
+Processor [3] M 100 N 12501 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9376 12501
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.913179871517e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.361908622092e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.747481253930e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.861608272948e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.066032408050e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 3.910991366769e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 3.966134185548e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 1.038646947977e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 2.198244180430e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 1.350432909057e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 11 SNES Function norm 2.591855801472e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 12 SNES Function norm 4.066788292762e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 13 SNES Function norm 7.088691715115e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 14 SNES Function norm 1.214221832856e-10
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 14
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 126.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 3151
+Processor [1] M 100 N 12601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 3151 6301
+Processor [2] M 100 N 12601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 6301 9451
+Processor [3] M 100 N 12601 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 9451 12601
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 12601
+mphi2 = 1., mchi2 = 1.
+A = 0.71
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 126.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,126.000], nt=12601) ===
+  0 SNES Function norm 2.136479884519e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 12601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 3151
+Processor [1] M 100 N 12601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 3151 6301
+Processor [2] M 100 N 12601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 6301 9451
+Processor [3] M 100 N 12601 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 9451 12601
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 2.920022246669e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 1.363106410710e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 4.750676016260e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.818470163398e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 3.071532262697e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 1.389348609958e-01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 2.979312223924e-01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 5.214547177865e-01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 1.673594813950e+03
+  Nonlinear solve did not converge due to DIVERGED_DTOL iterations 9
+
+>>> first tF to fail is: 126 (SNES reason -9) <<<
+
+Last convergent solution was found at tF = 125 (nt = 12501).
+Saved (1+1) phi, chi, Hphi, Hchi, x, t to PETSc binary.
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 1.8404e+10 max 4.7053e+09 min 4.5262e+09
+Current process memory:                                  total 4.2211e+09 max 1.3672e+09 min 8.5874e+08
+****************************************************************************************************************************************************************
+***                                WIDEN YOUR WINDOW TO 160 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document                                 ***
+****************************************************************************************************************************************************************
+
+------------------------------------------------------------------ PETSc Performance Summary: ------------------------------------------------------------------
+
+/mmfs1/home/jacks.local/jgwysong/stiffMat/./lam66snes_1p1_parallel_All_IC_Loop on a linux-gnu-c-opt named node037 with 4 processes, by jgwysong@jacks.local on Thu Nov  6 01:46:08 2025
+Using Petsc Release Version 3.21.5, unknown 
+
+                         Max       Max/Min     Avg       Total
+Time (sec):           7.867e+03     1.000   7.867e+03
+Objects:              0.000e+00     0.000   0.000e+00
+Flops:                3.325e+11     1.000   3.325e+11  1.330e+12
+Flops/sec:            4.227e+07     1.000   4.226e+07  1.690e+08
+MPI Msg Count:        4.089e+04     1.628   3.312e+04  1.325e+05
+MPI Msg Len (bytes):  6.808e+09     1.081   1.972e+05  2.613e+10
+MPI Reductions:       3.883e+04     1.000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flops
+                            and VecAXPY() for complex vectors of length N --> 8N flops
+
+Summary of Stages:   ----- Time ------  ----- Flop ------  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total    Count   %Total     Avg         %Total    Count   %Total
+ 0:      Main Stage: 7.8668e+03 100.0%  1.3298e+12 100.0%  1.325e+05 100.0%  1.972e+05      100.0%  3.881e+04 100.0%
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flop: Max - maximum over all processors
+                  Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   AvgLen: average message length (bytes)
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %F - percent flop in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flop over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+Event                Count      Time (sec)     Flop                              --- Global ---  --- Stage ----  Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   AvgLen  Reduct  %T %F %M %L %R  %T %F %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+BuildTwoSided       3871 1.0 5.9420e+00 1.9 0.00e+00 0.0 7.5e+03 4.0e+00 3.9e+03  0  0  6  0 10   0  0  6  0 10     0
+BuildTwoSidedF      2715 1.0 4.4931e+00 2.4 0.00e+00 0.0 1.8e+03 7.7e+04 2.7e+03  0  0  1  1  7   0  0  1  1  7     0
+MatMult              724 1.0 2.5095e+01 1.0 3.63e+10 1.0 4.3e+03 2.4e+03 0.0e+00  0 11  3  0  0   0 11  3  0  0  5781
+MatSolve             724 1.0 2.4182e+02 1.0 1.65e+11 1.0 4.0e+04 6.1e+05 3.0e+03  3 49 30 94  8   3 49 30 94  8  2721
+MatLUFactorSym        54 1.0 6.5007e+02 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  8  0  0  0  0   8  0  0  0  0     0
+MatLUFactorNum       608 1.0 5.3019e+03 1.0 1.02e+11 1.0 0.0e+00 0.0e+00 0.0e+00 67 31  0  0  0  67 31  0  0  0    77
+MatAssemblyBegin    4999 1.0 3.7127e+00 2.1 0.00e+00 0.0 1.8e+03 7.7e+04 2.0e+03  0  0  1  1  5   0  0  1  1  5     0
+MatAssemblyEnd      4999 1.0 4.3820e+00 1.1 2.92e+06 0.0 1.6e+03 4.8e+02 6.8e+02  0  0  1  0  2   0  0  1  0  2     2
+MatCreateSubMat     1216 1.0 1.6478e+02 1.0 0.00e+00 0.0 2.6e+03 1.8e+03 2.2e+03  2  0  2  0  6   2  0  2  0  6     0
+MatZeroEntries       304 1.0 1.3310e+01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+DMCreateMat           27 1.0 2.7402e+01 1.0 0.00e+00 0.0 3.2e+02 8.0e+02 2.2e+02  0  0  0  0  1   0  0  0  0  1     0
+SFSetGraph          1156 1.0 7.7223e+00 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetUp             1156 1.0 7.0372e+00 1.1 0.00e+00 0.0 1.3e+04 3.1e+05 1.2e+03  0  0 10 15  3   0  0 10 15  3     0
+SFReduceBegin        304 1.0 1.9901e-03 1.3 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFReduceEnd          304 1.0 3.3994e-04 1.8 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFPack             16884 1.0 7.1637e-01 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFUnpack           16884 1.0 4.3360e-01 2.3 2.70e+05 2.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     2
+VecView                6 1.0 7.3667e-02 1.0 0.00e+00 0.0 1.8e+01 8.5e+05 6.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecMDot              362 1.0 9.4879e-01 1.1 9.50e+08 1.0 0.0e+00 0.0e+00 3.6e+02  0  0  0  0  1   0  0  0  0  1  4005
+VecNorm              389 1.0 6.0148e-01 1.0 8.81e+08 1.0 0.0e+00 0.0e+00 3.9e+02  0  0  0  0  1   0  0  0  0  1  5857
+VecScale            1028 1.0 9.6057e-01 1.0 9.60e+08 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  3996
+VecCopy              634 1.0 7.1473e-01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet              1155 1.0 1.4413e+00 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY              304 1.0 6.0126e-01 1.0 6.90e+08 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  4587
+VecWAXPY             304 1.0 8.1193e-01 1.0 3.45e+08 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  1699
+VecMAXPY             666 1.0 1.3421e+00 1.0 1.77e+09 1.0 0.0e+00 0.0e+00 0.0e+00  0  1  0  0  0   0  1  0  0  0  5274
+VecAssemblyBegin     999 1.0 8.0804e-01 2.4 0.00e+00 0.0 0.0e+00 0.0e+00 6.7e+02  0  0  0  0  2   0  0  0  0  2     0
+VecAssemblyEnd       999 1.0 1.3437e-03 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecScatterBegin    16580 1.0 3.5166e+01 1.0 0.00e+00 0.0 9.3e+04 1.1e+05 0.0e+00  0  0 70 38  0   0  0 70 38  0     0
+VecScatterEnd      16580 1.0 1.8732e+00 1.2 2.70e+05 2.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecReduceArith       912 1.0 1.3557e+00 1.0 2.07e+09 1.0 0.0e+00 0.0e+00 0.0e+00  0  1  0  0  0   0  1  0  0  0  6104
+VecReduceComm        304 1.0 9.2656e-03 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 3.0e+02  0  0  0  0  1   0  0  0  0  1     0
+KSPSetUp             912 1.0 3.2718e-01 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 4.3e+02  0  0  0  0  1   0  0  0  0  1     0
+KSPSolve             304 1.0 6.2268e+03 1.0 3.08e+11 1.0 4.5e+04 5.5e+05 4.6e+03 79 93 34 94 12  79 93 34 94 12   198
+KSPGMRESOrthog       362 1.0 1.6331e+00 1.1 1.90e+09 1.0 0.0e+00 0.0e+00 3.6e+02  0  1  0  0  1   0  1  0  0  1  4653
+SNESSolve             27 1.0 7.8080e+03 1.0 3.33e+11 1.0 5.6e+04 4.6e+05 1.3e+04 99 100 43 99 33  99 100 43 99 33   170
+SNESSetUp             27 1.0 3.9047e-02 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 5.4e+01  0  0  0  0  0   0  0  0  0  0     0
+SNESFunctionEval     331 1.0 3.7990e+02 1.0 2.70e+05 2.0 4.0e+03 3.3e+03 6.6e+02  5  0  3  0  2   5  0  3  0  2     0
+SNESJacobianEval     304 1.0 1.0302e+03 1.0 2.21e+10 1.0 3.6e+03 4.0e+04 1.2e+03 13  7  3  1  3  13  7  3  1  3    86
+SNESLineSearch       304 1.0 3.6817e+02 1.0 2.41e+09 1.0 3.6e+03 3.3e+03 9.1e+02  5  1  3  0  2   5  1  3  0  2    26
+PCSetUp              912 1.0 6.1202e+03 1.0 1.02e+11 1.0 4.0e+03 2.4e+05 5.8e+03 78 31  3  4 15  78 31  3  4 15    67
+PCApply              362 1.0 6.2018e+03 1.0 2.74e+11 1.0 4.2e+04 5.8e+05 3.9e+03 79 82 32 94 10  79 82 32 94 10   177
+KSPSolve_FS_0        362 1.0 3.0949e+03 1.0 1.33e+11 1.0 2.0e+04 6.1e+05 1.9e+03 39 40 15 47  5  39 40 15 47  5   172
+KSPSolve_FS_Schu     362 1.0 3.0991e+03 1.0 1.33e+11 1.0 2.0e+04 6.1e+05 1.9e+03 39 40 15 47  5  39 40 15 47  5   172
+------------------------------------------------------------------------------------------------------------------------
+
+Object Type          Creations   Destructions. Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+           Container    54             52
+    Distributed Mesh   108            107
+              Matrix   675            675
+           Index Set  3406           3406
+   IS L to G Mapping    54             53
+   Star Forest Graph  1372           1368
+     Discrete System   108            107
+           Weak Form   108            107
+              Vector  2573           2569
+              Viewer     2              2
+                SNES    27             27
+              DMSNES    27             26
+      SNESLineSearch    27             27
+       Krylov Solver   135            135
+     DMKSP interface    27             26
+      Preconditioner   135            135
+========================================================================================================================
+Average time to get PetscTime(): 2.56e-08
+Average time for MPI_Barrier(): 6.574e-07
+Average time for zero size MPI_Send(): 1.03475e-06
+#PETSc Option Table entries:
+-A 0.71 # (source: command line)
+-C 1.0 # (source: command line)
+-dm_view # (source: command line)
+-fieldsplit_0_ksp_type preonly # (source: command line)
+-fieldsplit_0_pc_factor_mat_solver_type mumps # (source: command line)
+-fieldsplit_0_pc_factor_shift_amount 1e-12 # (source: command line)
+-fieldsplit_0_pc_factor_shift_type NONZERO # (source: command line)
+-fieldsplit_0_pc_type lu # (source: command line)
+-fieldsplit_1_ksp_type preonly # (source: command line)
+-fieldsplit_1_pc_factor_mat_solver_type mumps # (source: command line)
+-fieldsplit_1_pc_factor_shift_amount 1e-12 # (source: command line)
+-fieldsplit_1_pc_factor_shift_type NONZERO # (source: command line)
+-fieldsplit_1_pc_type lu # (source: command line)
+-g66 1.0 # (source: command line)
+-Ghost -1.0 # (source: command line)
+-IC 5 # (source: command line)
+-ksp_converged_reason # (source: command line)
+-ksp_gmres_restart 50 # (source: command line)
+-ksp_max_it 200 # (source: command line)
+-ksp_type fgmres # (source: command line)
+-lam66 1.0 # (source: command line)
+-log_view # (source: command line)
+-Loop 1 # (source: command line)
+-mchi2 1.0 # (source: command line)
+-memory_view # (source: command line)
+-mphi2 1.0 # (source: command line)
+-nt 10001 # (source: command line)
+-nx 100 # (source: command line)
+-osc_dphi 0.0 # (source: command line)
+-osc_k0 0.0 # (source: command line)
+-osc_r 1.0 # (source: command line)
+-osc_sigma 0.05 # (source: command line)
+-pc_fieldsplit_0_fields 2,3 # (source: command line)
+-pc_fieldsplit_1_fields 0,1 # (source: command line)
+-pc_fieldsplit_schur_fact_type upper # (source: command line)
+-pc_fieldsplit_schur_precondition a11 # (source: command line)
+-pc_fieldsplit_type schur # (source: command line)
+-pc_type fieldsplit # (source: command line)
+-snes_atol 1e-12 # (source: command line)
+-snes_converged_reason # (source: command line)
+-snes_ksp_ew # (source: command line)
+-snes_linesearch_type basic # (source: command line)
+-snes_max_it 10000 # (source: command line)
+-snes_monitor # (source: command line)
+-snes_rtol 1e-8 # (source: command line)
+-snes_type newtonls # (source: command line)
+-t0 0.0 # (source: command line)
+-tF 100.0 # (source: command line)
+-tF_step 1.0 # (source: command line)
+-xL 0.0 # (source: command line)
+-xR 1.0 # (source: command line)
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 8 sizeof(PetscInt) 4
+Configure options: --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90 --with-debugging=0 --with-shared-libraries --with-scalar-type=real --with-mpi=1 --download-cmake --download-scalapack --download-superlu --download-hypre=1 --download-fblaslapack=1 --download-mumps=1 --download-metis=1 --download-suitesparse=1 PETSC_ARCH=linux-gnu-c-opt --with-clean
+-----------------------------------------
+Libraries compiled on 2025-07-28 22:22:57 on cllogin002 
+Machine characteristics: Linux-5.14.0-162.6.1.el9_1.x86_64-x86_64-with-glibc2.34
+Using PETSc directory: /home/jacks.local/jgwysong/petsc-SP24
+Using PETSc arch: linux-gnu-c-opt
+-----------------------------------------
+
+Using C compiler: mpicc  -fPIC -Wall -Wwrite-strings -Wno-unknown-pragmas -Wno-lto-type-mismatch -Wno-stringop-overflow -fstack-protector -fvisibility=hidden -g -O  
+Using Fortran compiler: mpif90  -fPIC -Wall -ffree-line-length-none -ffree-line-length-0 -Wno-lto-type-mismatch -Wno-unused-dummy-argument -g -O    
+-----------------------------------------
+
+Using include paths: -I/home/jacks.local/jgwysong/petsc-SP24/include -I/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/include -I/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/include/suitesparse
+-----------------------------------------
+
+Using C linker: mpicc
+Using Fortran linker: mpif90
+Using libraries: -Wl,-rpath,/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -L/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -lpetsc -Wl,-rpath,/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -L/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -Wl,-rpath,/apps/openmpi/5.0.5/lib -L/apps/openmpi/5.0.5/lib -Wl,-rpath,/cm/shared/apps/slurm/current/lib64 -L/cm/shared/apps/slurm/current/lib64 -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib/gcc/x86_64-linux-gnu/11.2.0 -L/cm/local/apps/gcc/11.2.0/lib/gcc/x86_64-linux-gnu/11.2.0 -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib64 -L/cm/local/apps/gcc/11.2.0/lib64 -Wl,-rpath,/mmfs1/cm/shared/apps_local/python/3.12/lib -L/mmfs1/cm/shared/apps_local/python/3.12/lib -Wl,-rpath,/cm/shared/apps_local/openmpi/5.0.5/lib -L/cm/shared/apps_local/openmpi/5.0.5/lib -Wl,-rpath,/cm/shared/apps/slurm/current/lib64/slurm -L/cm/shared/apps/slurm/current/lib64/slurm -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib -L/cm/local/apps/gcc/11.2.0/lib -lHYPRE -lspqr -lumfpack -lklu -lcholmod -lamd -ldmumps -lmumps_common -lpord -lpthread -lscalapack -lsuperlu -lflapack -lfblas -lmetis -lm -lX11 -lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi -lgfortran -lm -lgfortran -lm -lgcc_s -lquadmath -lstdc++ -lquadmath
+-----------------------------------------
+

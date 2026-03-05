@@ -1,0 +1,437 @@
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 101 m 2 n 2 w 4 s 1
+X range of indices: 0 50, Y range of indices: 0 51
+Processor [1] M 100 N 101 m 2 n 2 w 4 s 1
+X range of indices: 50 100, Y range of indices: 0 51
+Processor [2] M 100 N 101 m 2 n 2 w 4 s 1
+X range of indices: 0 50, Y range of indices: 51 101
+Processor [3] M 100 N 101 m 2 n 2 w 4 s 1
+X range of indices: 50 100, Y range of indices: 51 101
+
+
+Initial condtion options (-IC #):
+1) Plane Wave
+2) Gaussian Packet
+3) Colored-Noise Spectra
+4) Phase-Correlated Two-Field Plane Waves
+5) Oscillon-Like, Time-Symmetric Seeds
+6) Domain-Wall/Bubble Data
+
+sigma = 0.05
+dphi = 0.
+r = 1.
+carrier = 0.
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 101
+mphi2 = 1., mchi2 = 1.
+A = 1.8
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+Ghost = -1.
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,1.000], nt=101) ===
+  0 SNES Function norm 5.416587534066e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 101 m 2 n 2 w 1 s 1
+X range of indices: 0 50, Y range of indices: 0 51
+Processor [1] M 100 N 101 m 2 n 2 w 1 s 1
+X range of indices: 50 100, Y range of indices: 0 51
+Processor [2] M 100 N 101 m 2 n 2 w 1 s 1
+X range of indices: 0 50, Y range of indices: 51 101
+Processor [3] M 100 N 101 m 2 n 2 w 1 s 1
+X range of indices: 50 100, Y range of indices: 51 101
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 4.250390476889e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  2 SNES Function norm 4.251531441808e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  3 SNES Function norm 6.126717989911e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 6.394773519304e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 3.077480052313e-08
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  6 SNES Function norm 3.432401663952e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 6
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 51
+Processor [1] M 100 N 201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 51 101
+Processor [2] M 100 N 201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 101 151
+Processor [3] M 100 N 201 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 151 201
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 201
+mphi2 = 1., mchi2 = 1.
+A = 1.8
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 2.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,2.000], nt=201) ===
+  0 SNES Function norm 5.416587534066e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 51
+Processor [1] M 100 N 201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 51 101
+Processor [2] M 100 N 201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 101 151
+Processor [3] M 100 N 201 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 151 201
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 4.921778313570e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  2 SNES Function norm 4.334536816791e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  3 SNES Function norm 1.416324792133e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 7.261155161431e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 4.729454771340e-05
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.611733939097e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 6.595854256810e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 5.075660382859e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 8
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 3.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 76
+Processor [1] M 100 N 301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 76 151
+Processor [2] M 100 N 301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 151 226
+Processor [3] M 100 N 301 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 226 301
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 301
+mphi2 = 1., mchi2 = 1.
+A = 1.8
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 3.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,3.000], nt=301) ===
+  0 SNES Function norm 5.416587534066e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 76
+Processor [1] M 100 N 301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 76 151
+Processor [2] M 100 N 301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 151 226
+Processor [3] M 100 N 301 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 226 301
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 5.353372357742e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  2 SNES Function norm 2.068407312480e-01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  3 SNES Function norm 2.030971075219e-01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.596354951328e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 2.637456727725e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  6 SNES Function norm 2.675727663396e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  7 SNES Function norm 8.494810332324e-06
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  8 SNES Function norm 4.967138781604e-07
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  9 SNES Function norm 8.670410195738e-09
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+ 10 SNES Function norm 9.737206653025e-11
+  Nonlinear solve converged due to CONVERGED_FNORM_RELATIVE iterations 10
+
+
+==========================================================
+
+  converged (reason=3). Growing tF -> 4.000000
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 0 101
+Processor [1] M 100 N 401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 101 201
+Processor [2] M 100 N 401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 201 301
+Processor [3] M 100 N 401 m 1 n 4 w 4 s 1
+X range of indices: 0 100, Y range of indices: 301 401
+
+
+==========================================================
+
+
+Lam66 IC 5 run!!!!!!!
+Using nx = 100, nt = 401
+mphi2 = 1., mchi2 = 1.
+A = 1.8
+kL/2pi = 1.
+lam66 = 1.
+g66 = 1.
+xL = 0., xR = 1.
+t0 = 0., tF = 4.
+hx = 1.00000000e-02, ht = 1.00000000e-02
+
+=== Solve (T=[0.000,4.000], nt=401) ===
+  0 SNES Function norm 5.416587534066e-02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 100 N 401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 0 101
+Processor [1] M 100 N 401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 101 201
+Processor [2] M 100 N 401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 201 301
+Processor [3] M 100 N 401 m 1 n 4 w 1 s 1
+X range of indices: 0 100, Y range of indices: 301 401
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 6.235802102284e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 2.837275223399e+01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  3 SNES Function norm 1.009270728323e+01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.961255295887e+01
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  5 SNES Function norm 1.089602042449e+04
+  Nonlinear solve did not converge due to DIVERGED_DTOL iterations 5
+
+>>> first tF to fail is: 4 (SNES reason -9) <<<
+
+Last convergent solution was found at tF = 3 (nt = 301).
+Saved (1+1) phi, chi, Hphi, Hchi, x, t to PETSc binary.
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 1.4614e+09 max 3.7145e+08 min 3.6026e+08
+Current process memory:                                  total 1.2010e+09 max 3.3413e+08 min 2.8735e+08
+****************************************************************************************************************************************************************
+***                                WIDEN YOUR WINDOW TO 160 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document                                 ***
+****************************************************************************************************************************************************************
+
+------------------------------------------------------------------ PETSc Performance Summary: ------------------------------------------------------------------
+
+/mmfs1/home/jacks.local/jgwysong/stiffMat/./lam66snes_1p1_parallel_All_IC_Loop on a linux-gnu-c-opt named node018 with 4 processes, by jgwysong@jacks.local on Fri Nov  7 12:29:36 2025
+Using Petsc Release Version 3.21.5, unknown 
+
+                         Max       Max/Min     Avg       Total
+Time (sec):           1.716e+01     1.000   1.716e+01
+Objects:              0.000e+00     0.000   0.000e+00
+Flops:                6.118e+08     1.058   5.950e+08  2.380e+09
+Flops/sec:            3.565e+07     1.058   3.467e+07  1.387e+08
+MPI Msg Count:        2.285e+03     1.238   2.056e+03  8.222e+03
+MPI Msg Len (bytes):  2.081e+07     1.174   9.511e+03  7.820e+07
+MPI Reductions:       2.139e+03     1.000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flops
+                            and VecAXPY() for complex vectors of length N --> 8N flops
+
+Summary of Stages:   ----- Time ------  ----- Flop ------  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total    Count   %Total     Avg         %Total    Count   %Total
+ 0:      Main Stage: 1.7164e+01 100.0%  2.3802e+09 100.0%  8.222e+03 100.0%  9.511e+03      100.0%  2.121e+03  99.2%
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flop: Max - maximum over all processors
+                  Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   AvgLen: average message length (bytes)
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %F - percent flop in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flop over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+Event                Count      Time (sec)     Flop                              --- Global ---  --- Stage ----  Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   AvgLen  Reduct  %T %F %M %L %R  %T %F %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+BuildTwoSided        387 1.0 7.6211e-02 3.1 0.00e+00 0.0 9.1e+02 4.0e+00 3.9e+02  0  0 11  0 18   0  0 11  0 18     0
+BuildTwoSidedF       263 1.0 7.1357e-02 8.0 0.00e+00 0.0 2.3e+02 5.7e+04 2.6e+02  0  0  3 17 12   0  0  3 17 12     0
+MatMult               62 1.0 4.9288e-02 1.1 6.88e+07 1.0 4.6e+02 2.0e+03 0.0e+00  0 11  6  1  0   0 11  6  1  0  5538
+MatSolve              62 1.0 5.1227e-01 1.0 2.95e+08 1.1 4.1e+03 1.2e+04 2.9e+02  3 48 50 65 14   3 48 50 65 14  2228
+MatLUFactorSym         8 1.0 1.5381e+00 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  9  0  0  0  0   9  0  0  0  0     0
+MatLUFactorNum        58 1.0 1.1582e+01 1.0 1.88e+08 1.1 0.0e+00 0.0e+00 0.0e+00 67 30  0  0  0  67 30  0  0  0    62
+MatAssemblyBegin     484 1.0 6.6098e-02 3.2 0.00e+00 0.0 2.3e+02 5.7e+04 1.9e+02  0  0  3 17  9   0  0  3 17  9     0
+MatAssemblyEnd       484 1.0 3.8044e-02 1.6 2.78e+05 9.5 3.0e+02 3.9e+02 1.0e+02  0  0  4  0  5   0  0  4  0  5    22
+MatCreateSubMat      116 1.0 3.4969e-01 1.0 0.00e+00 0.0 4.8e+02 1.4e+03 2.6e+02  2  0  6  1 12   2  0  6  1 12     0
+MatZeroEntries        29 1.0 2.6284e-02 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+DMCreateMat            4 1.0 7.2539e-02 1.0 0.00e+00 0.0 6.0e+01 6.5e+02 3.2e+01  0  0  1  0  1   0  0  1  0  2     0
+SFSetGraph           124 1.0 2.4016e-02 1.4 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetUp              124 1.0 3.3600e-02 1.6 0.00e+00 0.0 1.6e+03 5.6e+03 1.2e+02  0  0 19 11  6   0  0 19 11  6     0
+SFReduceBegin         29 1.0 1.1039e-04 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFReduceEnd           29 1.0 1.9094e-05 1.3 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFPack               706 1.0 1.3439e-03 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFUnpack             706 1.0 7.9431e-04 1.3 2.55e+04 1.7 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0   102
+VecView                6 1.0 4.2135e-03 1.0 0.00e+00 0.0 1.8e+01 2.0e+04 6.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecMDot               31 1.0 4.6292e-03 2.6 1.66e+06 1.0 0.0e+00 0.0e+00 3.1e+01  0  0  0  0  1   0  0  0  0  1  1423
+VecNorm               35 1.0 1.1588e-03 1.0 1.76e+06 1.0 0.0e+00 0.0e+00 3.5e+01  0  0  0  0  2   0  0  0  0  2  6030
+VecScale              91 1.0 6.5916e-04 1.0 1.90e+06 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 11424
+VecCopy               61 1.0 1.4681e-03 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet               123 1.0 2.8862e-03 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY               29 1.0 7.7519e-04 1.2 1.46e+06 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  7460
+VecWAXPY              29 1.0 1.3503e-03 1.2 7.30e+05 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  2141
+VecMAXPY              60 1.0 8.3073e-04 1.0 3.23e+06 1.0 0.0e+00 0.0e+00 0.0e+00  0  1  0  0  0   0  1  0  0  0 15373
+VecAssemblyBegin     105 1.0 8.0247e-03 2.7 0.00e+00 0.0 0.0e+00 0.0e+00 7.2e+01  0  0  0  0  3   0  0  0  0  3     0
+VecAssemblyEnd       105 1.0 7.8788e-05 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecScatterBegin      677 1.0 1.7933e-02 1.0 0.00e+00 0.0 3.8e+03 7.3e+03 0.0e+00  0  0 46 36  0   0  0 46 36  0     0
+VecScatterEnd        677 1.0 1.8663e-02 2.4 2.55e+04 1.7 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     4
+VecReduceArith        87 1.0 2.7940e-03 1.0 4.38e+06 1.0 0.0e+00 0.0e+00 0.0e+00  0  1  0  0  0   0  1  0  0  0  6209
+VecReduceComm         29 1.0 1.0329e-04 1.7 0.00e+00 0.0 0.0e+00 0.0e+00 2.9e+01  0  0  0  0  1   0  0  0  0  1     0
+KSPSetUp              87 1.0 1.6850e-03 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 6.4e+01  0  0  0  0  3   0  0  0  0  3     0
+KSPSolve              29 1.0 1.3700e+01 1.0 5.61e+08 1.1 4.6e+03 1.1e+04 4.3e+02 80 91 55 66 20  80 91 55 66 20   159
+KSPGMRESOrthog        31 1.0 5.0704e-03 2.3 3.33e+06 1.0 0.0e+00 0.0e+00 3.1e+01  0  1  0  0  1   0  1  0  0  1  2598
+SNESSolve              4 1.0 1.7054e+01 1.0 6.12e+08 1.1 6.2e+03 1.1e+04 1.4e+03 99 100 75 90 64  99 100 75 90 65   140
+SNESSetUp              4 1.0 2.6355e-04 1.6 0.00e+00 0.0 0.0e+00 0.0e+00 8.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SNESFunctionEval      33 1.0 8.1971e-01 1.0 2.55e+04 1.7 4.8e+02 2.7e+03 6.6e+01  5  0  6  2  3   5  0  6  2  3     0
+SNESJacobianEval      29 1.0 2.1622e+00 1.0 4.64e+07 1.0 4.4e+02 3.1e+04 1.2e+02 13  8  5 18  5  13  8  5 18  5    85
+SNESLineSearch        29 1.0 7.7646e-01 1.0 5.13e+06 1.0 4.2e+02 2.7e+03 8.7e+01  5  1  5  1  4   5  1  5  1  4    26
+PCSetUp               87 1.0 1.3489e+01 1.0 1.88e+08 1.1 7.1e+02 5.8e+03 6.6e+02 79 30  9  5 31  79 30  9  5 31    54
+PCApply               31 1.0 1.3649e+01 1.0 4.97e+08 1.1 4.3e+03 1.2e+04 3.7e+02 80 81 53 65 17  80 81 53 65 17   141
+KSPSolve_FS_0         31 1.0 6.8525e+00 1.0 2.41e+08 1.1 2.1e+03 1.3e+04 1.8e+02 40 39 25 34  9  40 39 25 34  9   136
+KSPSolve_FS_Schu      31 1.0 6.7828e+00 1.0 2.41e+08 1.1 2.0e+03 1.2e+04 1.8e+02 40 39 25 30  9  40 39 25 30  9   137
+------------------------------------------------------------------------------------------------------------------------
+
+Object Type          Creations   Destructions. Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+           Container     8              6
+    Distributed Mesh    16             15
+              Matrix   100            100
+           Index Set   378            378
+   IS L to G Mapping     8              7
+   Star Forest Graph   156            152
+     Discrete System    16             15
+           Weak Form    16             15
+              Vector   323            319
+              Viewer     2              2
+                SNES     4              4
+              DMSNES     4              3
+      SNESLineSearch     4              4
+       Krylov Solver    20             20
+     DMKSP interface     4              3
+      Preconditioner    20             20
+========================================================================================================================
+Average time to get PetscTime(): 2.58e-08
+Average time for MPI_Barrier(): 6.252e-07
+Average time for zero size MPI_Send(): 5.5425e-07
+#PETSc Option Table entries:
+-A 1.8 # (source: command line)
+-C 1.0 # (source: command line)
+-dm_view # (source: command line)
+-fieldsplit_0_ksp_type preonly # (source: command line)
+-fieldsplit_0_pc_factor_mat_solver_type mumps # (source: command line)
+-fieldsplit_0_pc_factor_shift_amount 1e-12 # (source: command line)
+-fieldsplit_0_pc_factor_shift_type NONZERO # (source: command line)
+-fieldsplit_0_pc_type lu # (source: command line)
+-fieldsplit_1_ksp_type preonly # (source: command line)
+-fieldsplit_1_pc_factor_mat_solver_type mumps # (source: command line)
+-fieldsplit_1_pc_factor_shift_amount 1e-12 # (source: command line)
+-fieldsplit_1_pc_factor_shift_type NONZERO # (source: command line)
+-fieldsplit_1_pc_type lu # (source: command line)
+-g66 1.0 # (source: command line)
+-Ghost -1.0 # (source: command line)
+-IC 5 # (source: command line)
+-ksp_converged_reason # (source: command line)
+-ksp_gmres_restart 50 # (source: command line)
+-ksp_max_it 200 # (source: command line)
+-ksp_type fgmres # (source: command line)
+-lam66 1.0 # (source: command line)
+-log_view # (source: command line)
+-Loop 1 # (source: command line)
+-mchi2 1.0 # (source: command line)
+-memory_view # (source: command line)
+-mphi2 1.0 # (source: command line)
+-nt 101 # (source: command line)
+-nx 100 # (source: command line)
+-osc_dphi 0.0 # (source: command line)
+-osc_k0 0.0 # (source: command line)
+-osc_r 1.0 # (source: command line)
+-osc_sigma 0.05 # (source: command line)
+-pc_fieldsplit_0_fields 2,3 # (source: command line)
+-pc_fieldsplit_1_fields 0,1 # (source: command line)
+-pc_fieldsplit_schur_fact_type upper # (source: command line)
+-pc_fieldsplit_schur_precondition a11 # (source: command line)
+-pc_fieldsplit_type schur # (source: command line)
+-pc_type fieldsplit # (source: command line)
+-snes_atol 1e-12 # (source: command line)
+-snes_converged_reason # (source: command line)
+-snes_ksp_ew # (source: command line)
+-snes_linesearch_type basic # (source: command line)
+-snes_max_it 10000 # (source: command line)
+-snes_monitor # (source: command line)
+-snes_rtol 1e-8 # (source: command line)
+-snes_type newtonls # (source: command line)
+-t0 0.0 # (source: command line)
+-tF 1.0 # (source: command line)
+-tF_step 1.0 # (source: command line)
+-xL 0.0 # (source: command line)
+-xR 1.0 # (source: command line)
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 8 sizeof(PetscInt) 4
+Configure options: --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90 --with-debugging=0 --with-shared-libraries --with-scalar-type=real --with-mpi=1 --download-cmake --download-scalapack --download-superlu --download-hypre=1 --download-fblaslapack=1 --download-mumps=1 --download-metis=1 --download-suitesparse=1 PETSC_ARCH=linux-gnu-c-opt --with-clean
+-----------------------------------------
+Libraries compiled on 2025-07-28 22:22:57 on cllogin002 
+Machine characteristics: Linux-5.14.0-162.6.1.el9_1.x86_64-x86_64-with-glibc2.34
+Using PETSc directory: /home/jacks.local/jgwysong/petsc-SP24
+Using PETSc arch: linux-gnu-c-opt
+-----------------------------------------
+
+Using C compiler: mpicc  -fPIC -Wall -Wwrite-strings -Wno-unknown-pragmas -Wno-lto-type-mismatch -Wno-stringop-overflow -fstack-protector -fvisibility=hidden -g -O  
+Using Fortran compiler: mpif90  -fPIC -Wall -ffree-line-length-none -ffree-line-length-0 -Wno-lto-type-mismatch -Wno-unused-dummy-argument -g -O    
+-----------------------------------------
+
+Using include paths: -I/home/jacks.local/jgwysong/petsc-SP24/include -I/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/include -I/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/include/suitesparse
+-----------------------------------------
+
+Using C linker: mpicc
+Using Fortran linker: mpif90
+Using libraries: -Wl,-rpath,/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -L/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -lpetsc -Wl,-rpath,/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -L/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -Wl,-rpath,/apps/openmpi/5.0.5/lib -L/apps/openmpi/5.0.5/lib -Wl,-rpath,/cm/shared/apps/slurm/current/lib64 -L/cm/shared/apps/slurm/current/lib64 -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib/gcc/x86_64-linux-gnu/11.2.0 -L/cm/local/apps/gcc/11.2.0/lib/gcc/x86_64-linux-gnu/11.2.0 -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib64 -L/cm/local/apps/gcc/11.2.0/lib64 -Wl,-rpath,/mmfs1/cm/shared/apps_local/python/3.12/lib -L/mmfs1/cm/shared/apps_local/python/3.12/lib -Wl,-rpath,/cm/shared/apps_local/openmpi/5.0.5/lib -L/cm/shared/apps_local/openmpi/5.0.5/lib -Wl,-rpath,/cm/shared/apps/slurm/current/lib64/slurm -L/cm/shared/apps/slurm/current/lib64/slurm -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib -L/cm/local/apps/gcc/11.2.0/lib -lHYPRE -lspqr -lumfpack -lklu -lcholmod -lamd -ldmumps -lmumps_common -lpord -lpthread -lscalapack -lsuperlu -lflapack -lfblas -lmetis -lm -lX11 -lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi -lgfortran -lm -lgfortran -lm -lgcc_s -lquadmath -lstdc++ -lquadmath
+-----------------------------------------
+
