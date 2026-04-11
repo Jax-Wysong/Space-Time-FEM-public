@@ -9,6 +9,7 @@ This repository collects space-time finite element experiments built on Argonne 
 - `practice_problems/`: Baseline implementations of linear heat (homogenous) and wave equations (nonhomogenous) (`heat_eqn_linear/` and `wave_eqn_linear/`). These provide small drivers, element stiffness/residual routines, and job scripts that mirror the larger projects.
   - Anyone interested in using this code for a different PDE should refer to these examples to understand how implementation looks. 
   - There are PDF files containing PDE/discretization setup and verification.
+- `preconditiong/`: Contains code and testing for preconditioning schemes for wave, coupled nKG, and Burgers (coming soon) equations. Mainly focused on a user-defined time-decomposition restricted additive Schwarz preconditioner.
 
 ## Building and running
 There are .slurm scripts available where you can see what SNES/KSP options are being used as well as how to implement the problem specific options such as domain size, number of mesh points, etc.
