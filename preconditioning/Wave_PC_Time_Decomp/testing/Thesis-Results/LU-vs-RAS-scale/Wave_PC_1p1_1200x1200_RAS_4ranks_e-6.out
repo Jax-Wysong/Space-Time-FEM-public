@@ -1,0 +1,29 @@
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 1200 N 1200 m 1 n 4 w 2 s 2
+X range of indices: 0 1200, Y range of indices: 0 300
+Processor [1] M 1200 N 1200 m 1 n 4 w 2 s 2
+X range of indices: 0 1200, Y range of indices: 300 600
+Processor [2] M 1200 N 1200 m 1 n 4 w 2 s 2
+X range of indices: 0 1200, Y range of indices: 600 900
+Processor [3] M 1200 N 1200 m 1 n 4 w 2 s 2
+X range of indices: 0 1200, Y range of indices: 900 1200
+
+=================== Linear Wave Problem ===================
+
+Using nx = 1200, nt = 1200
+xL = -5., xR = 5.
+t0 = 0., tF = 10.
+hx = 8.34028357e-03, ht = 8.34028357e-03
+
+=== Solve (T=[0.000,10.000], nt=1200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_RTOL iterations 22
+KSP final norm of residual 1.0193e-07
+Absolute residual norm = 1.01929512e-07
+U  L2 error norm  = 1.08636169e-04
+U  max error norm = 4.94888859e-05
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 1.1569e+10 max 2.9099e+09 min 2.8443e+09
+Current process memory:                                  total 1.7193e+09 max 4.2996e+08 min 4.2970e+08

@@ -1,0 +1,35 @@
+Using overlap 0 and interface width 0, so stencil width = 1
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 2400 N 2400 m 1 n 4 w 2 s 1
+X range of indices: 0 2400, Y range of indices: 0 600
+Processor [1] M 2400 N 2400 m 1 n 4 w 2 s 1
+X range of indices: 0 2400, Y range of indices: 600 1200
+Processor [2] M 2400 N 2400 m 1 n 4 w 2 s 1
+X range of indices: 0 2400, Y range of indices: 1200 1800
+Processor [3] M 2400 N 2400 m 1 n 4 w 2 s 1
+X range of indices: 0 2400, Y range of indices: 1800 2400
+
+=================== Linear Wave Problem ===================
+
+Using nx = 2400, nt = 2400
+xL = -5., xR = 5.
+t0 = 0., tF = 10.
+hx = 4.16840350e-03, ht = 4.16840350e-03
+
+=== Solve (T=[0.000,10.000], nt=2400) ===
+
+=== KSP solve (no SNES updates) ===
+    0 KSP none resid norm 1.733985111189e+01 true resid norm 2.463059165450e-10 ||r(i)||/||b|| 1.420461542349e-11
+    1 KSP none resid norm 2.463059165450e-10 true resid norm 2.463059165450e-10 ||r(i)||/||b|| 1.420461542349e-11
+    Linear solve converged due to CONVERGED_ITS iterations 1
+Absolute residual norm = 2.46305917e-10
+U  L2 error norm  = 2.78324507e-05
+U  max error norm = 1.32048699e-05
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 4.3602e+10 max 1.1055e+10 min 1.0725e+10
+Current process memory:                                  total 3.1622e+09 max 9.6478e+08 min 6.8172e+08
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There is one unused database option. It is:
+Option left: name:-ksp_atol value: 1e-4 source: command line
