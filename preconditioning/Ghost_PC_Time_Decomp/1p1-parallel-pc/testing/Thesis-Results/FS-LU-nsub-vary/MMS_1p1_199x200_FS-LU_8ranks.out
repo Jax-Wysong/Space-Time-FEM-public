@@ -1,0 +1,78 @@
+DM Object: 8 MPI processes
+  type: da
+Processor [0] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 0 25
+Processor [1] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 25 50
+Processor [2] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 50 75
+Processor [3] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 75 100
+Processor [4] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 100 125
+Processor [5] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 125 150
+Processor [6] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 150 175
+Processor [7] M 199 N 200 m 1 n 8 w 4 s 1
+X range of indices: 0 199, Y range of indices: 175 200
+
+=================== MMS IC 1 ===================
+
+Using nx = 199, nt = 200
+mphi2 = 1., mchi2 = 1.
+lam22 = 1.
+Ghost = -1.
+xL = -1., xR = 1.
+t0 = 0., tF = 2.
+hx = 1.00502513e-02, ht = 1.00502513e-02
+
+=== Solve (T=[0.000,2.000], nt=200) ===
+  0 SNES Function norm 3.846461608398e+01
+DM Object: 8 MPI processes
+  type: da
+Processor [0] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 0 25
+Processor [1] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 25 50
+Processor [2] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 50 75
+Processor [3] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 75 100
+Processor [4] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 100 125
+Processor [5] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 125 150
+Processor [6] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 150 175
+Processor [7] M 199 N 200 m 1 n 8 w 1 s 1
+X range of indices: 0 199, Y range of indices: 175 200
+    0 KSP preconditioned resid norm 3.758996574029e+02 true resid norm 3.846461608398e+01 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 6.680524119758e-09 true resid norm 1.756918413452e-11 ||r(i)||/||b|| 4.567622382130e-13
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 1.972502643785e-01
+    0 KSP preconditioned resid norm 6.090573228686e+02 true resid norm 1.972502643785e-01 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 1.049506901657e+02 true resid norm 1.803036143669e-02 ||r(i)||/||b|| 9.140855396822e-02
+    2 KSP preconditioned resid norm 9.315755804350e+00 true resid norm 1.421801106737e-03 ||r(i)||/||b|| 7.208107483234e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 3.528775677889e-02
+    0 KSP preconditioned resid norm 3.240918123860e+02 true resid norm 3.528775677889e-02 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 1.465493769032e+01 true resid norm 2.436243009779e-03 ||r(i)||/||b|| 6.903932786217e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  3 SNES Function norm 6.122765810440e-03
+    0 KSP preconditioned resid norm 3.435331248793e+01 true resid norm 6.122765810440e-03 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 1.667447798139e+00 true resid norm 4.221355086374e-04 ||r(i)||/||b|| 6.894523189465e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 4.281987391144e-04
+    0 KSP preconditioned resid norm 1.650016185700e+00 true resid norm 4.281987391144e-04 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 4.115897762191e-02 true resid norm 1.729809526273e-05 ||r(i)||/||b|| 4.039735216995e-02
+    2 KSP preconditioned resid norm 2.912310338405e-04 true resid norm 2.634320888507e-07 ||r(i)||/||b|| 6.152098658569e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  5 SNES Function norm 4.509841102362e-07
+PHI  L2 error norm  = 1.18343854e-04
+PHI  max error norm = 1.96027554e-04
+CHI  L2 error norm  = 1.17964123e-04
+CHI  max error norm = 1.54694400e-04
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 2.4291e+09 max 3.1957e+08 min 2.7091e+08
+Current process memory:                                  total 1.8176e+09 max 2.5813e+08 min 2.0625e+08

@@ -1,0 +1,75 @@
+DM Object: 16 MPI processes
+  type: da
+Processor [0] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 0 25
+Processor [1] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 25 50
+Processor [2] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 50 75
+Processor [3] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 75 100
+Processor [4] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 100 125
+Processor [5] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 125 150
+Processor [6] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 150 175
+Processor [7] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 175 200
+Processor [8] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 200 225
+Processor [9] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 225 250
+Processor [10] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 250 275
+Processor [11] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 275 300
+Processor [12] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 300 325
+Processor [13] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 325 350
+Processor [14] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 350 375
+Processor [15] M 399 N 400 m 1 n 16 w 4 s 1
+X range of indices: 0 399, Y range of indices: 375 400
+
+=================== MMS IC 1 ===================
+
+Using nx = 399, nt = 400
+mphi2 = 1., mchi2 = 1.
+lam22 = 1.
+Ghost = -1.
+xL = -1., xR = 1.
+t0 = 0., tF = 2.
+hx = 5.01253133e-03, ht = 5.01253133e-03
+
+=== Solve (T=[0.000,2.000], nt=400) ===
+  0 SNES Function norm 5.446546006753e+01
+    0 KSP none resid norm 5.446546006753e+01 true resid norm 2.721822135378e-11 ||r(i)||/||b|| 4.997336168653e-13
+    1 KSP none resid norm 2.721822135378e-11 true resid norm 2.721822135378e-11 ||r(i)||/||b|| 4.997336168653e-13
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  1 SNES Function norm 1.379143438639e-01
+    0 KSP none resid norm 1.379143438639e-01 true resid norm 9.482639689374e-11 ||r(i)||/||b|| 6.875745788075e-10
+    1 KSP none resid norm 9.482639689374e-11 true resid norm 9.482639689374e-11 ||r(i)||/||b|| 6.875745788075e-10
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  2 SNES Function norm 1.747421597578e-02
+    0 KSP none resid norm 1.747421597578e-02 true resid norm 4.480649425328e-11 ||r(i)||/||b|| 2.564149047681e-09
+    1 KSP none resid norm 4.480649425328e-11 true resid norm 4.480649425328e-11 ||r(i)||/||b|| 2.564149047681e-09
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  3 SNES Function norm 3.269861346564e-03
+    0 KSP none resid norm 3.269861346564e-03 true resid norm 8.452428358597e-13 ||r(i)||/||b|| 2.584950082816e-10
+    1 KSP none resid norm 8.452428358597e-13 true resid norm 8.452428358597e-13 ||r(i)||/||b|| 2.584950082816e-10
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  4 SNES Function norm 6.587660551335e-06
+    0 KSP none resid norm 6.587660551335e-06 true resid norm 5.775632886788e-16 ||r(i)||/||b|| 8.767350475607e-11
+    1 KSP none resid norm 5.775632886788e-16 true resid norm 5.775632886788e-16 ||r(i)||/||b|| 8.767350475607e-11
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  5 SNES Function norm 5.621263465784e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 5
+PHI  L2 error norm  = 2.94140737e-05
+PHI  max error norm = 4.88827143e-05
+CHI  L2 error norm  = 2.92192239e-05
+CHI  max error norm = 3.85410993e-05
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 8.2459e+09 max 5.9687e+08 min 4.7169e+08
+Current process memory:                                  total 3.4971e+09 max 2.7575e+08 min 2.0884e+08

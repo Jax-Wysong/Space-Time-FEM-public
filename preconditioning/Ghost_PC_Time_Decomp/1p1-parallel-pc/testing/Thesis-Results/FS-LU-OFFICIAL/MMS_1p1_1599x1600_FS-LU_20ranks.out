@@ -1,0 +1,63 @@
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 1599 N 1600 m 1 n 4 w 4 s 1
+X range of indices: 0 1599, Y range of indices: 0 400
+Processor [1] M 1599 N 1600 m 1 n 4 w 4 s 1
+X range of indices: 0 1599, Y range of indices: 400 800
+Processor [2] M 1599 N 1600 m 1 n 4 w 4 s 1
+X range of indices: 0 1599, Y range of indices: 800 1200
+Processor [3] M 1599 N 1600 m 1 n 4 w 4 s 1
+X range of indices: 0 1599, Y range of indices: 1200 1600
+
+=================== MMS IC 1 ===================
+
+Using nx = 1599, nt = 1600
+mphi2 = 1., mchi2 = 1.
+lam22 = 1.
+Ghost = -1.
+xL = -1., xR = 1.
+t0 = 0., tF = 2.
+hx = 1.25078174e-03, ht = 1.25078174e-03
+
+=== Solve (T=[0.000,2.000], nt=1600) ===
+  0 SNES Function norm 1.090332460078e+02
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 1599 N 1600 m 1 n 4 w 1 s 1
+X range of indices: 0 1599, Y range of indices: 0 400
+Processor [1] M 1599 N 1600 m 1 n 4 w 1 s 1
+X range of indices: 0 1599, Y range of indices: 400 800
+Processor [2] M 1599 N 1600 m 1 n 4 w 1 s 1
+X range of indices: 0 1599, Y range of indices: 800 1200
+Processor [3] M 1599 N 1600 m 1 n 4 w 1 s 1
+X range of indices: 0 1599, Y range of indices: 1200 1600
+    0 KSP preconditioned resid norm 2.991819011742e+03 true resid norm 1.090332460078e+02 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 8.527501024903e-06 true resid norm 5.632300030553e-09 ||r(i)||/||b|| 5.165672156684e-11
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  1 SNES Function norm 6.836545993652e-02
+    0 KSP preconditioned resid norm 4.899431814706e+03 true resid norm 6.836545993652e-02 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 8.460680949869e+02 true resid norm 4.126962844529e-03 ||r(i)||/||b|| 6.036619732187e-02
+    2 KSP preconditioned resid norm 7.424592382174e+01 true resid norm 2.259399421395e-04 ||r(i)||/||b|| 3.304884401412e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  2 SNES Function norm 4.438456972756e-03
+    0 KSP preconditioned resid norm 2.629419969005e+03 true resid norm 4.438456972756e-03 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 1.179785255538e+02 true resid norm 3.026890135334e-04 ||r(i)||/||b|| 6.819690162400e-02
+    2 KSP preconditioned resid norm 2.251222601856e+00 true resid norm 8.381840589069e-06 ||r(i)||/||b|| 1.888458227830e-03
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  3 SNES Function norm 8.133536607700e-04
+    0 KSP preconditioned resid norm 2.135133964436e+02 true resid norm 8.133536607700e-04 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 3.260247853670e+00 true resid norm 2.637531428345e-05 ||r(i)||/||b|| 3.242785464135e-02
+    Linear solve converged due to CONVERGED_RTOL iterations 1
+  4 SNES Function norm 2.722849405660e-05
+    0 KSP preconditioned resid norm 3.298284394456e+00 true resid norm 2.722849405660e-05 ||r(i)||/||b|| 1.000000000000e+00
+    1 KSP preconditioned resid norm 7.045344173933e-02 true resid norm 4.861078659730e-07 ||r(i)||/||b|| 1.785291044604e-02
+    2 KSP preconditioned resid norm 6.286678275079e-04 true resid norm 4.954774220841e-09 ||r(i)||/||b|| 1.819701894104e-04
+    Linear solve converged due to CONVERGED_RTOL iterations 2
+  5 SNES Function norm 5.583167281084e-09
+PHI  L2 error norm  = 1.90770410e-06
+PHI  max error norm = 3.26948223e-06
+CHI  L2 error norm  = 1.82458294e-06
+CHI  max error norm = 2.53365990e-06
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 4.3037e+10 max 1.1397e+10 min 1.0317e+10
+Current process memory:                                  total 3.2965e+09 max 9.6602e+08 min 7.6722e+08

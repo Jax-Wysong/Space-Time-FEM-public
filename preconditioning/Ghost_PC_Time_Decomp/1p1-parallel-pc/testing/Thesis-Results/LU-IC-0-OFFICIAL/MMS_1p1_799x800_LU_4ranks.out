@@ -1,0 +1,51 @@
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 799 N 800 m 1 n 4 w 4 s 1
+X range of indices: 0 799, Y range of indices: 0 200
+Processor [1] M 799 N 800 m 1 n 4 w 4 s 1
+X range of indices: 0 799, Y range of indices: 200 400
+Processor [2] M 799 N 800 m 1 n 4 w 4 s 1
+X range of indices: 0 799, Y range of indices: 400 600
+Processor [3] M 799 N 800 m 1 n 4 w 4 s 1
+X range of indices: 0 799, Y range of indices: 600 800
+
+=================== MMS IC 1 ===================
+
+Using nx = 799, nt = 800
+mphi2 = 1., mchi2 = 1.
+lam22 = 1.
+Ghost = -1.
+xL = -1., xR = 1.
+t0 = 0., tF = 2.
+hx = 2.50312891e-03, ht = 2.50312891e-03
+
+=== Solve (T=[0.000,2.000], nt=800) ===
+  0 SNES Function norm 7.707403598956e+01
+    0 KSP none resid norm 7.707403598956e+01 true resid norm 9.601472246836e-11 ||r(i)||/||b|| 1.245746654312e-12
+    1 KSP none resid norm 9.601472246836e-11 true resid norm 9.601472246836e-11 ||r(i)||/||b|| 1.245746654312e-12
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  1 SNES Function norm 9.696309241193e-02
+    0 KSP none resid norm 9.696309241193e-02 true resid norm 5.637869628067e-10 ||r(i)||/||b|| 5.814449073174e-09
+    1 KSP none resid norm 5.637869628067e-10 true resid norm 5.637869628067e-10 ||r(i)||/||b|| 5.814449073174e-09
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  2 SNES Function norm 8.751994044733e-03
+    0 KSP none resid norm 8.751994044733e-03 true resid norm 1.590935665059e-10 ||r(i)||/||b|| 1.817797929166e-08
+    1 KSP none resid norm 1.590935665059e-10 true resid norm 1.590935665059e-10 ||r(i)||/||b|| 1.817797929166e-08
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  3 SNES Function norm 1.633941775734e-03
+    0 KSP none resid norm 1.633941775734e-03 true resid norm 4.555137457179e-12 ||r(i)||/||b|| 2.787821160354e-09
+    1 KSP none resid norm 4.555137457179e-12 true resid norm 4.555137457179e-12 ||r(i)||/||b|| 2.787821160354e-09
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  4 SNES Function norm 3.329446490577e-06
+    0 KSP none resid norm 3.329446490577e-06 true resid norm 1.576703816797e-15 ||r(i)||/||b|| 4.735633449162e-10
+    1 KSP none resid norm 1.576703816797e-15 true resid norm 1.576703816797e-15 ||r(i)||/||b|| 4.735633449162e-10
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  5 SNES Function norm 2.788510745218e-12
+  Nonlinear solve converged due to CONVERGED_FNORM_ABS iterations 5
+PHI  L2 error norm  = 7.33369197e-06
+PHI  max error norm = 1.21893863e-05
+CHI  L2 error norm  = 7.27877767e-06
+CHI  max error norm = 9.61073889e-06
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 1.7454e+10 max 4.4245e+09 min 4.3048e+09
+Current process memory:                                  total 1.2206e+09 max 3.4363e+08 min 2.3629e+08

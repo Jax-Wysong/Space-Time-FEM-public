@@ -1,0 +1,87 @@
+DM Object: 32 MPI processes
+  type: da
+Processor [0] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 0 13
+Processor [1] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 13 26
+Processor [2] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 26 39
+Processor [3] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 39 52
+Processor [4] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 52 65
+Processor [5] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 65 78
+Processor [6] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 78 91
+Processor [7] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 91 104
+Processor [8] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 104 117
+Processor [9] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 117 130
+Processor [10] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 130 143
+Processor [11] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 143 156
+Processor [12] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 156 169
+Processor [13] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 169 182
+Processor [14] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 182 195
+Processor [15] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 195 208
+Processor [16] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 208 220
+Processor [17] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 220 232
+Processor [18] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 232 244
+Processor [19] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 244 256
+Processor [20] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 256 268
+Processor [21] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 268 280
+Processor [22] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 280 292
+Processor [23] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 292 304
+Processor [24] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 304 316
+Processor [25] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 316 328
+Processor [26] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 328 340
+Processor [27] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 340 352
+Processor [28] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 352 364
+Processor [29] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 364 376
+Processor [30] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 376 388
+Processor [31] M 399 N 400 m 1 n 32 w 4 s 1
+X range of indices: 0 399, Y range of indices: 388 400
+
+=================== MMS IC 1 ===================
+
+Using nx = 399, nt = 400
+mphi2 = 1., mchi2 = 1.
+lam22 = 1.
+Ghost = -1.
+xL = -1., xR = 1.
+t0 = 0., tF = 2.
+hx = 5.01253133e-03, ht = 5.01253133e-03
+
+=== Solve (T=[0.000,2.000], nt=400) ===
+  0 SNES Function norm 5.446546006753e+01
+    0 KSP none resid norm 5.446546006753e+01 true resid norm 2.535517457487e-11 ||r(i)||/||b|| 4.655275938812e-13
+    1 KSP none resid norm 2.535517457487e-11 true resid norm 2.535517457487e-11 ||r(i)||/||b|| 4.655275938812e-13
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  1 SNES Function norm 1.379143438638e-01
+    0 KSP none resid norm 1.379143438638e-01 true resid norm 1.562017219202e-10 ||r(i)||/||b|| 1.132599536379e-09
+    1 KSP none resid norm 1.562017219202e-10 true resid norm 1.562017219202e-10 ||r(i)||/||b|| 1.132599536379e-09
+    Linear solve converged due to CONVERGED_ITS iterations 1
+  2 SNES Function norm 1.747421597595e-02
