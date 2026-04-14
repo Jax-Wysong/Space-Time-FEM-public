@@ -1,0 +1,23 @@
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 2399 N 2400 m 1 n 4 w 4 s 2
+X range of indices: 0 2399, Y range of indices: 0 600
+Processor [1] M 2399 N 2400 m 1 n 4 w 4 s 2
+X range of indices: 0 2399, Y range of indices: 600 1200
+Processor [2] M 2399 N 2400 m 1 n 4 w 4 s 2
+X range of indices: 0 2399, Y range of indices: 1200 1800
+Processor [3] M 2399 N 2400 m 1 n 4 w 4 s 2
+X range of indices: 0 2399, Y range of indices: 1800 2400
+
+=================== MMS IC 1 ===================
+
+Using nx = 2399, nt = 2400
+mphi2 = 1., mchi2 = 1.
+lam22 = 1.
+Ghost = -1.
+xL = -1., xR = 1.
+t0 = 0., tF = 2.
+hx = 8.33680700e-04, ht = 8.33680700e-04
+
+=== Solve (T=[0.000,2.000], nt=2400) ===
+  0 SNES Function norm 1.335518269622e+02

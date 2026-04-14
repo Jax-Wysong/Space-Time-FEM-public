@@ -1,0 +1,5 @@
+slurmstepd: error: Detected 1 oom_kill event in StepId=9804024.0. Some of the step tasks have been OOM Killed.
+srun: error: node024: task 1: Out Of Memory
+slurmstepd: error:  mpi/pmix_v3: _errhandler: node024 [0]: pmixp_client_v2.c:211: Error handler invoked: status = -25, source = [slurm.pmix.9804024.0:1]
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 9804024.0 ON node024 CANCELLED AT 2026-04-13T18:07:55 ***
