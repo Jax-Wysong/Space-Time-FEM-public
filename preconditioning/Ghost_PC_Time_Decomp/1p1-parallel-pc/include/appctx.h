@@ -57,9 +57,26 @@ typedef struct {
   KSP        ksp_start, ksp_middle, ksp_end;
   Vec        x_start, y_start, x_middle, y_middle, x_end, y_end;
 
+  /* Fieldsplit Stuff */
+  PetscBool use_fs_ras;
+
+  /* {phi,u} block slab objects (dof0=0) */
+  Mat  A_phiu_start, A_phiu_middle, A_phiu_end;
+  KSP  ksp_phiu_start, ksp_phiu_middle, ksp_phiu_end;
+  Vec  xp_start, yp_start, xp_middle, yp_middle, xp_end, yp_end;
+
+  /* {chi,v} block slab objects (dof0=2) */
+  Mat  A_chiv_start, A_chiv_middle, A_chiv_end;
+  KSP  ksp_chiv_start, ksp_chiv_middle, ksp_chiv_end;
+  Vec  xc_start, yc_start, xc_middle, yc_middle, xc_end, yc_end;
+
+
   /* coarse level */
   PetscBool  use_coarse;
   PetscInt   coarse_thickness;
+
+  /* Nonlinear rebuild guard: skip redundant PCSetUp calls within the same Newton step */
+  PetscInt   last_snes_iter;
 
 } SampleShellPC;
 

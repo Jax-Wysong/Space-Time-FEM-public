@@ -103,6 +103,9 @@ int main(int argc,char **argv)
   PetscBool use_shell = PETSC_FALSE;
   PetscOptionsGetBool(NULL,NULL,"-use_shell_pc",&use_shell,NULL);
 
+  PetscBool use_fs_ras = PETSC_FALSE;
+  PetscOptionsGetBool(NULL,NULL,"-use_fs_ras",&use_fs_ras,NULL);
+
   SNESGetKSP(snes, &ksp);
   KSPGetPC(ksp, &pc);
 
@@ -116,6 +119,8 @@ int main(int argc,char **argv)
     shell->snes = snes;
     shell->use_nonlinear = user.slab_pc_nonlinear;
     shell->use_ras = user.slab_pc_ras;
+    shell->use_fs_ras = use_fs_ras;
+    shell->last_snes_iter = -1;
 
 
     PCShellSetContext(pc, shell);
