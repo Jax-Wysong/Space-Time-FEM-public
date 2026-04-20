@@ -1,0 +1,62 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 20 MPI processes
+  type: da
+Processor [0] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 0 10
+Processor [1] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 10 20
+Processor [2] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 20 30
+Processor [3] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 30 40
+Processor [4] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 40 50
+Processor [5] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 50 60
+Processor [6] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 60 70
+Processor [7] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 70 80
+Processor [8] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 80 90
+Processor [9] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 90 100
+Processor [10] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 100 110
+Processor [11] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 110 120
+Processor [12] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 120 130
+Processor [13] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 130 140
+Processor [14] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 140 150
+Processor [15] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 150 160
+Processor [16] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 160 170
+Processor [17] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 170 180
+Processor [18] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 180 190
+Processor [19] M 100 N 200 m 1 n 20 w 2 s 2
+X range of indices: 0 100, Y range of indices: 190 200
+
+=================== Linear Wave Problem ===================
+
+Using nx = 100, nt = 200
+xL = -5., xR = 5.
+t0 = 0., tF = 10.
+hx = 1.01010101e-01, ht = 5.02512563e-02
+
+=== Solve (T=[0.000,10.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve did not converge due to DIVERGED_ITS iterations 10000
+KSP final norm of residual 1.93858e-05
+Absolute residual norm = 1.93858204e-05
+U  L2 error norm  = 1.43440044e-02
+U  max error norm = 7.00315469e-03
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 4.0564e+09 max 2.0364e+08 min 2.0093e+08
+Current process memory:                                  total 3.9723e+09 max 1.9938e+08 min 1.9746e+08
