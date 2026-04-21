@@ -20,20 +20,11 @@ typedef struct {
 	PetscScalar A_standard[4][4];
 	DM dm;
 
-	PetscBool slab_pc_nonlinear; /* if true, include nonlinear terms in slab pc */
-
   PetscBool slab_pc_ras;  /* if true: RAS; if false: pure ASM */
+  PetscBool full_overlap_dirichlet; /* if true: pin ov left time levels per slab; if false: pin only 1 */
+  PetscBool first_sub_only_bc; /* if true: only impose temporal Dirichlet BC on the first subdomain */
 
-  /* Dirichlet/Neumann boundary conditions */
-  PetscBool interface_BC_all; /* if true, impose D and N */
-  PetscBool interface_BC_dirichlet; /* if true, impose D-like (phi, chi) 0 at interface*/
-  PetscBool interface_BC_neumann;   /* if true, impose N-like (u, v) 0 at interface */
-  PetscBool interface_BC_none;      /* if true, impose no BC at interface (for testing) */
-
-  PetscBool interface_D_N_alternate; /* if true, alternate D/N on even/odd interfaces (for testing) */
-
-  PetscBool interface_BC_robin; /* if true, impose Robin BC at interface (for testing) */
-  PetscReal robin_alpha; /* alpha value for Robin BC */
+  PetscBool dump_matrices; /* if true, dump J and M^{-1}J to binary files for testing */
 
 	} AppCtx;
 
@@ -45,7 +36,6 @@ typedef struct {
   AppCtx    *user;
   DM         dm;
   SNES       snes;
-  PetscBool  use_nonlinear;
 
   PetscInt   nx, nt, blksize, overlap, Nsub, interface_width;
 
@@ -63,14 +53,6 @@ typedef struct {
   KSP        ksp_start, ksp_middle, ksp_end;
   Vec        x_start, y_start, x_middle, y_middle, x_end, y_end;
 
-  /* BC interface condtions */
-  PetscBool interface_BC_all;
-  PetscBool interface_BC_dirichlet;
-  PetscBool interface_BC_neumann;
-  PetscBool interface_BC_none;
-  PetscBool interface_D_N_alternate;
-  PetscBool interface_BC_robin;
-  PetscReal robin_alpha;
 
 
 } SampleShellPC;

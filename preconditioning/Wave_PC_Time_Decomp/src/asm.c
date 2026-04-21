@@ -238,14 +238,9 @@ PetscErrorCode PCSetUp_SampleShell(PC pc)
   MPI_Comm_rank(PETSC_COMM_WORLD, &shell->rank);
   MPI_Comm_size(PETSC_COMM_WORLD, &shell->size);
 
-  /* always run parallel with size == Nsub for now */
-  if (shell->Nsub < 2) {
-    SETERRQ(PETSC_COMM_WORLD, PETSC_ERR_ARG_INCOMP, "Require Nsub >= 2 in parallel-only mode");
-  }
   if (shell->size != shell->Nsub) {
     SETERRQ(PETSC_COMM_WORLD, PETSC_ERR_ARG_INCOMP, "Require MPI size == Nsub");
   }
-
   if (user->nt % user->Nsub != 0) {
     SETERRQ(PETSC_COMM_WORLD, PETSC_ERR_ARG_INCOMP, "nt must be evenly divisible by Nsub");
   }
@@ -270,72 +265,19 @@ PetscErrorCode PCSetUp_SampleShell(PC pc)
   else shell->slabtype = SLAB_MIDDLE;
 
   /* --------------------------------------------
-     Refresh path: if already built and linear, bail
-     *** NOT USED FOR THE LINEAR WAVE PROBLEM ***
-     -------------------------------------------- */
-  if (shell->ksp_start || shell->ksp_middle || shell->ksp_end) {
-
-    if (!shell->use_nonlinear) PetscFunctionReturn(0);
-
-    /* Nonlinear refresh: rebuild only THIS rank’s slab matrix using current SNES solution */
-    Vec Ucur = NULL;
-    ierr = SNESGetSolution(shell->snes, &Ucur);CHKERRQ(ierr);
-
-    if (shell->slabtype == SLAB_START) {
-      PetscInt t0 = 0, t1 = blksize - 1 + ov;
-
-      ierr = PackSlabFromGlobal(shell->dm, Ucur, shell->Uloc, nx, t0, t1, shell->x_start);CHKERRQ(ierr);
-
-      const PetscScalar *Uslab = NULL;
-      ierr = VecGetArrayRead(shell->x_start, &Uslab);CHKERRQ(ierr);
-      ierr = stiff2(shell->A_start, nx, blksize + ov, shell->user, PETSC_TRUE, Uslab, pc);CHKERRQ(ierr);
-      ierr = VecRestoreArrayRead(shell->x_start, &Uslab);CHKERRQ(ierr);
-
-      ierr = KSPSetUp(shell->ksp_start);CHKERRQ(ierr);
-
-    } else if (shell->slabtype == SLAB_MIDDLE) {
-      PetscInt s  = shell->rank;
-      PetscInt t0 = s*blksize - iw - ov;
-      PetscInt t1 = (s+1)*blksize + ov - 1;
-
-      ierr = PackSlabFromGlobal(shell->dm, Ucur, shell->Uloc, nx, t0, t1, shell->x_middle);CHKERRQ(ierr);
-
-      const PetscScalar *Uslab = NULL;
-      ierr = VecGetArrayRead(shell->x_middle, &Uslab);CHKERRQ(ierr);
-      ierr = stiff2(shell->A_middle, nx, blksize + 2*ov + iw, shell->user, PETSC_TRUE, Uslab, pc);CHKERRQ(ierr);
-      ierr = VecRestoreArrayRead(shell->x_middle, &Uslab);CHKERRQ(ierr);
-
-      ierr = KSPSetUp(shell->ksp_middle);CHKERRQ(ierr);
-
-    } else { /* SLAB_END */
-      PetscInt t0 = (Nsub-1)*blksize - iw - ov;
-      PetscInt t1 = nt - 1;
-
-      ierr = PackSlabFromGlobal(shell->dm, Ucur, shell->Uloc, nx, t0, t1, shell->x_end);CHKERRQ(ierr);
-
-      const PetscScalar *Uslab = NULL;
-      ierr = VecGetArrayRead(shell->x_end, &Uslab);CHKERRQ(ierr);
-      ierr = stiff2(shell->A_end, nx, blksize + ov + iw, shell->user, PETSC_TRUE, Uslab, pc);CHKERRQ(ierr);
-      ierr = VecRestoreArrayRead(shell->x_end, &Uslab);CHKERRQ(ierr);
-
-      ierr = KSPSetUp(shell->ksp_end);CHKERRQ(ierr);
-    }
-
-    PetscFunctionReturn(0);
-  }
-
-  /* --------------------------------------------
      First-time build: allocate only this rank’s slab objects
      -------------------------------------------- */
 
   if (shell->slabtype == SLAB_START) {
-    PetscInt nloc = 2*nx*(blksize + ov);
+    /* clip slab window to nt-1 (relevant when Nsub==1: no right neighbour to overlap) */
+    PetscInt t1_start = PetscMin(blksize + ov - 1, nt - 1);
+    PetscInt nloc = 2*nx*(t1_start + 1);
     /* create local Mat, KSP, Vecs for this slab */
     ierr = CreateLocalSlabObjects(shell, nloc, "sub_start_", &shell->A_start, &shell->ksp_start,
                                 &shell->x_start, &shell->y_start);CHKERRQ(ierr);
 
     /* build A using the same logic from FormJacobian */
-    ierr = stiff2(shell->A_start, nx, blksize + ov, user, PETSC_TRUE, NULL, pc);CHKERRQ(ierr);
+    ierr = stiff2(shell->A_start, nx, t1_start + 1, user, 1, NULL, pc);CHKERRQ(ierr);
     ierr = KSPSetUp(shell->ksp_start);CHKERRQ(ierr);
 
   } else if (shell->slabtype == SLAB_MIDDLE) {
@@ -345,7 +287,8 @@ PetscErrorCode PCSetUp_SampleShell(PC pc)
                                 &shell->x_middle, &shell->y_middle);CHKERRQ(ierr);
 
     /* build A using the same logic from FormJacobian */
-    ierr = stiff2(shell->A_middle, nx, blksize + 2*ov + iw, user, PETSC_TRUE, NULL, pc);CHKERRQ(ierr);
+    PetscInt n_bc_mid = user->first_sub_only_bc ? 0 : (user->full_overlap_dirichlet ? ov : 1);
+    ierr = stiff2(shell->A_middle, nx, blksize + 2*ov + iw, user, n_bc_mid, NULL, pc);CHKERRQ(ierr);
     ierr = KSPSetUp(shell->ksp_middle);CHKERRQ(ierr);
 
   } else { /* SLAB_END */
@@ -355,7 +298,8 @@ PetscErrorCode PCSetUp_SampleShell(PC pc)
                                 &shell->x_end, &shell->y_end);CHKERRQ(ierr);
 
     /* build A using the same logic from FormJacobian */
-    ierr = stiff2(shell->A_end, nx, blksize + ov + iw, user, PETSC_TRUE, NULL, pc);CHKERRQ(ierr);
+    PetscInt n_bc_end = user->first_sub_only_bc ? 0 : (user->full_overlap_dirichlet ? ov : 1);
+    ierr = stiff2(shell->A_end, nx, blksize + ov + iw, user, n_bc_end, NULL, pc);CHKERRQ(ierr);
     ierr = KSPSetUp(shell->ksp_end);CHKERRQ(ierr);
   }
 
@@ -388,22 +332,18 @@ PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y)
   ierr = DMGlobalToLocalEnd  (shell->dm, x, INSERT_VALUES, shell->xloc);CHKERRQ(ierr);
 
 
-  if (size != (PetscMPIInt)Nsub) {
-    SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_ARG_INCOMP,"This layout assumes MPI size == Nsub");
-  }
-
   if (rank == 0) {
     PetscInt t0 = 0;
-    PetscInt t1 = blksize + ov - 1;
-    /* Change x_start from DMDA ordering to local/sequential ordering from t0 - t1*/
+    /* clip to nt-1: no right neighbour when Nsub==1 */
+    PetscInt t1     = PetscMin(blksize + ov - 1, shell->nt - 1);
+    PetscInt t_add1 = PetscMin(blksize - 1,      shell->nt - 1);
     ierr = PackSlabFromDMDALocal(shell->dm, shell->xloc, nx, t0, t1, shell->x_start);CHKERRQ(ierr);
 
     ierr = VecZeroEntries(shell->y_start);CHKERRQ(ierr);
-    /* solve A_start y_start = x_start sequentially*/
     ierr = KSPSolve(shell->ksp_start, shell->x_start, shell->y_start);CHKERRQ(ierr);
 
     if (shell->use_ras) {
-      ierr = AddBackInteriorToGlobal_DMDARows(shell->dm, y, nx, t0, 0, blksize-1, shell->y_start);CHKERRQ(ierr);
+      ierr = AddBackInteriorToGlobal_DMDARows(shell->dm, y, nx, t0, 0, t_add1, shell->y_start);CHKERRQ(ierr);
     } else {
       ierr = AddBackFullWindow_ASM(shell, y, nx, t0, t1, shell->y_start);CHKERRQ(ierr);
     }
@@ -415,16 +355,6 @@ PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y)
     PetscInt t1 = (s+1)*blksize + ov - 1;
 
     ierr = PackSlabFromDMDALocal(shell->dm, shell->xloc, nx, t0, t1, shell->x_middle);CHKERRQ(ierr);
-
-    if (shell->interface_BC_robin && rank > 0) {
-      PetscScalar *xs;
-      ierr = VecGetArray(shell->x_middle, &xs);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        xs[ gid(nx, 0, x, 0) ] = 0.0; /* u row */
-      }
-      xs[ gid(nx, 0, 0, 0) ] = 0.0;
-      ierr = VecRestoreArray(shell->x_middle, &xs);CHKERRQ(ierr);
-    }
 
     ierr = VecZeroEntries(shell->y_middle);CHKERRQ(ierr);
     ierr = KSPSolve(shell->ksp_middle, shell->x_middle, shell->y_middle);CHKERRQ(ierr);
@@ -438,21 +368,11 @@ PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y)
     }
   }
 
-  if (rank == Nsub-1) {
+  if (rank == Nsub-1 && Nsub > 1) {
     PetscInt t0 = (Nsub-1)*blksize - iw - ov;
     PetscInt t1 = shell->nt - 1;
 
     ierr = PackSlabFromDMDALocal(shell->dm, shell->xloc, nx, t0, t1, shell->x_end);CHKERRQ(ierr);
-
-    if (shell->interface_BC_robin && rank > 0) {
-      PetscScalar *xs;
-      ierr = VecGetArray(shell->x_end, &xs);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        xs[ gid(nx, 0, x, 0) ] = 0.0; /* u row */
-      }
-      xs[ gid(nx, 0, 0, 0) ] = 0.0;
-      ierr = VecRestoreArray(shell->x_end, &xs);CHKERRQ(ierr);
-    }
 
     ierr = VecZeroEntries(shell->y_end);CHKERRQ(ierr);
     ierr = KSPSolve(shell->ksp_end, shell->x_end, shell->y_end);CHKERRQ(ierr);
@@ -503,7 +423,7 @@ PetscErrorCode PCDestroy_SampleShell(PC pc)
   PetscFunctionReturn(0);
 }
 
-PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscBool impose_left_dirichlet, const PetscScalar *Uslab, PC pc)
+PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscInt n_bc_levels, const PetscScalar *Uslab, PC pc)
 {
   PetscErrorCode ierr;
   AppCtx *user = (AppCtx*)ctx;
@@ -567,211 +487,24 @@ PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscBool impo
   ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
   ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
 
-  /* Impose t=0 initial condition rows inside the slab:
-     Rows/cols for all x at local t=0 for all components phi, u, chi, and v,
-     depending on BC chosen on command line options.
-  */
-
-  PetscBool interface_BC_all = user->interface_BC_all;
-  PetscBool interface_BC_dirichlet = user->interface_BC_dirichlet;
-  PetscBool interface_BC_neumann = user->interface_BC_neumann;
-  PetscBool interface_BC_none = user->interface_BC_none;
-  PetscBool interface_D_N_alternate = user->interface_D_N_alternate;
-  PetscBool interface_BC_robin = user->interface_BC_robin;
-  PetscReal robin_alpha = user->robin_alpha;
-
-
-  if (interface_BC_all + interface_BC_dirichlet + interface_BC_neumann + interface_BC_none + interface_D_N_alternate + interface_BC_robin != 1) {
-    SETERRQ(PETSC_COMM_WORLD, PETSC_ERR_ARG_INCOMP, "Exactly one of the BC options must be chosen");
-  }
-
-  /* this is for testing (impose normal full Dirichlet BC on the first slab like we do in the jacobian).
-     this will certaintly not work becase the other slabs are not well-posed, but it is good to have on record. */
-  if(interface_BC_none) {
-    if (shell->slabtype == SLAB_START) {
-      PetscInt nbc = 2*nx;
-      PetscInt *rows = NULL;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[2*x + 0] = gid(nx, 0, x, 0);
-        rows[2*x + 1] = gid(nx, 0, x, 1);
-      }
-      ierr = MatZeroRows(A, nbc, rows, 1.0, NULL, NULL);CHKERRQ(ierr);
-      ierr = PetscFree(rows);CHKERRQ(ierr);
-      ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-      ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-    }
-    
-    PetscFunctionReturn(0);
-  }
-
-  /* this is for if individual calls on turned on (full D, only D-like, only N-like)*/
-  if (!interface_BC_none && !interface_D_N_alternate && !interface_BC_robin) {
-    PetscInt nbc = 0;
+  /* Impose left Dirichlet: zero rows for local t = 0 .. n_bc_levels-1 */
+  if (n_bc_levels > 0) {
+    PetscInt nbc = n_bc_levels * 2 * nx;
     PetscInt *rows = NULL;
-
-    /* building for BC All interface */
-    if (interface_BC_all) {
-      nbc = 2*nx;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[2*x + 0] = gid(nx, 0, x, 0);
-        rows[2*x + 1] = gid(nx, 0, x, 1);
-      }
-     } else if (interface_BC_dirichlet) {
-        if (shell->slabtype == SLAB_START){
-          nbc = 2*nx;
-          ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-          for (PetscInt x=0; x<nx; ++x) {
-            rows[2*x + 0] = gid(nx, 0, x, 0); /* u */
-            rows[2*x + 1] = gid(nx, 0, x, 1); /* v */
-          }
-        } else {
-          nbc = 1*nx;
-          ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-          for (PetscInt x=0; x<nx; ++x) {
-            rows[1*x + 0] = gid(nx, 0, x, 0); /* u */
-        }
-      }
-     } else if (interface_BC_neumann) {
-        if (shell->slabtype == SLAB_START){
-          nbc = 2*nx;
-          ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-          for (PetscInt x=0; x<nx; ++x) {
-            rows[2*x + 0] = gid(nx, 0, x, 0); /* u */
-            rows[2*x + 1] = gid(nx, 0, x, 1); /* v */
-          }
-        } else {
-          nbc = 1*nx;
-          ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-          for (PetscInt x=0; x<nx; ++x) {
-            rows[1*x + 0] = gid(nx, 0, x, 1); /* v */
-        }
+    ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
+    for (PetscInt tlev = 0; tlev < n_bc_levels; ++tlev) {
+      for (PetscInt x = 0; x < nx; ++x) {
+        rows[tlev*2*nx + 2*x + 0] = gid(nx, tlev, x, 0);
+        rows[tlev*2*nx + 2*x + 1] = gid(nx, tlev, x, 1);
       }
     }
-
     ierr = MatZeroRows(A, nbc, rows, 1.0, NULL, NULL);CHKERRQ(ierr);
     ierr = PetscFree(rows);CHKERRQ(ierr);
-
-    ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-    ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
   }
 
-  /* if alternating is turned on, we do (D-like, N-like, D-like, ...) per slab.
-  So, slab 0 is on rank 0 and is full D, slab 1 is on rank 1 and is N-like, 
-  slab 2 is on rank 2 and is D-like, etc. */
-  if (interface_D_N_alternate) {
-    PetscInt nbc = 0;
-    PetscInt *rows = NULL;
-    if (shell->rank == 0) { /* full Dirichlet */
-      nbc = 2*nx;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[2*x + 0] = gid(nx, 0, x, 0); /* u */
-        rows[2*x + 1] = gid(nx, 0, x, 1); /* v */
-      }
-    } else if(shell->rank % 2 == 0) { /* D-like */
-      nbc = 1*nx;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[1*x + 0] = gid(nx, 0, x, 0); /* u */
-      }
-    }else { /* N-like */
-      nbc = 1*nx;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[1*x + 0] = gid(nx, 0, x, 1); /* v */
-      }
-    }
+  ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
+  ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
 
-    ierr = MatZeroRows(A, nbc, rows, 1.0, NULL, NULL);CHKERRQ(ierr);
-    ierr = PetscFree(rows);CHKERRQ(ierr);
-
-    ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-    ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-  }
-
-  /* if Robin BC is turned on, we do Robin BC at interfaces 
-    This entails implementing phi_t + alpha phi
-    which is equivalent to u + alpha*phi (and similarly for chi and v).
-    We do this by going into the u/v equation (row) and the phi/chi column
-    and adding alpha. Alpha will be controlled via the command line.
-    Note that we will still do a full dirichlet on the global T = 0 boundary.*/
-
-  if (interface_BC_robin) {
-    if (shell->rank == 0) {
-      /* --- slab 0: full Dirichlet at global t=0 (homogeneous for correction solve) --- */
-      PetscInt nbc  = 2*nx;
-      PetscInt *rows = NULL;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[2*x + 0] = gid(nx, 0, x, 0); /* u */
-        rows[2*x + 1] = gid(nx, 0, x, 1); /* v */
-      }
-      ierr = MatZeroRows(A, nbc, rows, 1.0, NULL, NULL);CHKERRQ(ierr);
-      ierr = PetscFree(rows);CHKERRQ(ierr);
-
-      ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-      ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-
-    } else {
-      /* --- rank>0: strong Robin in correction form on phi/chi rows:
-          row_u : v + alpha*u = 0
-        plus a minimal pin to remove nullspace:
-          u(t=0,x=0)=0 (correction form)
-      */
-
-      /* We will replace ALL u rows at t=0 (1*nx rows) and also pin 1 rows.
-        Do it in ONE MatZeroRows call to avoid "matrix unassembled" state issues. */
-      PetscInt nbc = 1*nx + 1; /* all u rows at t=0 plus 1 pin row */
-      PetscInt *rows = NULL;
-      ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-
-      /* 1) Seed the sparsity pattern for (u,v) couplings if needed */
-      for (PetscInt x=0; x<nx; ++x) {
-        PetscInt row_u = gid(nx, 0, x, 0);
-        PetscInt col_v = gid(nx, 0, x, 1);
-
-        ierr = MatSetValue(A, row_u, col_v, 0.0, INSERT_VALUES);CHKERRQ(ierr);
-      }
-      ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-      ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-
-      /* 2) Build the list of rows to replace: all u rows at t=0, plus pinned ones */
-      for (PetscInt x=0; x<nx; ++x) {
-        rows[1*x + 0] = gid(nx, 0, x, 0); /* u row at interface */
-      }
-      /* Append pin rows (these are already in the list when x=0, but duplication is harmless) */
-      rows[1*nx + 0] = gid(nx, 0, 0, 0);  /* pin u(t=0,x=0) */
-
-      /* 3) Zero those rows (rows-only), then explicitly write replacement equations */
-      ierr = MatZeroRows(A, nbc, rows, 0.0, NULL, NULL);CHKERRQ(ierr);
-
-      /* 4) Fill the Robin equations on all interface rows */
-      for (PetscInt x=0; x<nx; ++x) {
-        PetscInt row_u = gid(nx, 0, x, 0);
-        PetscInt col_u = gid(nx, 0, x, 0);
-        PetscInt col_v = gid(nx, 0, x, 1);
-
-        /* u + alpha*v = 0 */
-        ierr = MatSetValue(A, row_u, col_u,   1.0,         INSERT_VALUES);CHKERRQ(ierr);
-        ierr = MatSetValue(A, row_u, col_v,   robin_alpha, INSERT_VALUES);CHKERRQ(ierr);
-      }
-
-      /* 5) Override the pinned rows to be pure Dirichlet on the correction (y=0) */
-      {
-        PetscInt prow_u = gid(nx, 0, 0, 0);
-        ierr = MatSetValue(A, prow_u, prow_u, 1.0, INSERT_VALUES);CHKERRQ(ierr);
-        /* (No other entries in that row since MatZeroRows cleared them.) */
-      }
-
-      ierr = PetscFree(rows);CHKERRQ(ierr);
-
-      /* 6) Final assemble after all modifications */
-      ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-      ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
-    }
-  }
   PetscFunctionReturn(0);
 }
 

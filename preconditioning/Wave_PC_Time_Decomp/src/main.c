@@ -27,17 +27,12 @@ int main(int argc,char **argv)
   user.Nsub = 1;
   user.overlap = 1;
   user.interface_width = 1; 
-  user.slab_pc_nonlinear = PETSC_FALSE;
   user.slab_pc_ras = PETSC_FALSE;
+  user.full_overlap_dirichlet = PETSC_FALSE;
+  user.first_sub_only_bc = PETSC_FALSE;
 
-  /* interface BC conditions */
-  user.interface_BC_all = PETSC_FALSE;
-  user.interface_BC_dirichlet = PETSC_FALSE;
-  user.interface_BC_neumann = PETSC_FALSE;
-  user.interface_BC_none = PETSC_FALSE;
-  user.interface_D_N_alternate = PETSC_FALSE;
-  user.interface_BC_robin = PETSC_FALSE;
-  user.robin_alpha = 1.0;
+  user.dump_matrices = PETSC_FALSE;
+
 
 
   PetscOptionsBegin(PETSC_COMM_WORLD,NULL,
@@ -48,19 +43,14 @@ int main(int argc,char **argv)
   PetscOptionsInt("-Nsub","number of time slabs","",user.Nsub,&user.Nsub,NULL);
   PetscOptionsInt("-overlap","overlap in time levels","",user.overlap,&user.overlap,NULL);
   PetscOptionsInt("-interface_width","width of interface","",user.interface_width,&user.interface_width,NULL);
-  PetscOptionsBool("-slab_pc_nonlinear","use nonlinear slab PC","",user.slab_pc_nonlinear,&user.slab_pc_nonlinear,NULL);
   PetscOptionsBool("-slab_pc_ras","use RAS slab PC","",user.slab_pc_ras,&user.slab_pc_ras,NULL);
-  PetscOptionsBool("-interface_BC_all","impose both D and N BC at interfaces","",user.interface_BC_all,&user.interface_BC_all,NULL);
-  PetscOptionsBool("-interface_BC_dirichlet","impose Dirichlet-like BC (phi, chi) at interfaces","",user.interface_BC_dirichlet,&user.interface_BC_dirichlet,NULL);
-  PetscOptionsBool("-interface_BC_neumann","impose Neumann-like BC (u, v) at interfaces","",user.interface_BC_neumann,&user.interface_BC_neumann,NULL);
-  PetscOptionsBool("-interface_BC_none","impose no BC at interfaces (for testing)","",user.interface_BC_none,&user.interface_BC_none,NULL);
-  PetscOptionsBool("-interface_D_N_alternate","alternate D/N BC on even/odd interfaces (for testing)","",user.interface_D_N_alternate,&user.interface_D_N_alternate,NULL);
-  PetscOptionsBool("-interface_BC_robin","impose Robin BC at interfaces (for testing)","",user.interface_BC_robin,&user.interface_BC_robin,NULL);
-  PetscOptionsReal("-robin_alpha","alpha value for Robin BC","",user.robin_alpha,&user.robin_alpha,NULL);
+  PetscOptionsBool("-full_overlap_dirichlet","pin all overlap time levels as left Dirichlet (default: pin only 1)","",user.full_overlap_dirichlet,&user.full_overlap_dirichlet,NULL);
+  PetscOptionsBool("-first_sub_only_bc","impose temporal Dirichlet BC only on the first subdomain, none on others","",user.first_sub_only_bc,&user.first_sub_only_bc,NULL);
   PetscOptionsReal ("-xL"   ,"left  x"        ,"" ,user.xL   ,&user.xL   ,NULL);
   PetscOptionsReal ("-xR"   ,"right x"        ,"" ,user.xR   ,&user.xR   ,NULL);
   PetscOptionsReal ("-t0"   ,"initial t"      ,"" ,user.t0   ,&user.t0   ,NULL);
   PetscOptionsReal ("-tF"   ,"final   t"      ,"" ,user.tF   ,&user.tF   ,NULL);
+  PetscOptionsBool("-dump_matrices","dump J and M^{-1}J to binary files","",user.dump_matrices,&user.dump_matrices,NULL);
   PetscOptionsEnd();
 
 
@@ -133,17 +123,7 @@ int main(int argc,char **argv)
     shell->user = &user;
     shell->dm   = user.dm;
     shell->snes = snes;
-    shell->use_nonlinear = user.slab_pc_nonlinear;
     shell->use_ras = user.slab_pc_ras;
-
-    /* BC interface condtions */
-    shell->interface_BC_all = user.interface_BC_all;
-    shell->interface_BC_dirichlet = user.interface_BC_dirichlet;
-    shell->interface_BC_neumann = user.interface_BC_neumann;
-    shell->interface_BC_none = user.interface_BC_none;
-    shell->interface_D_N_alternate = user.interface_D_N_alternate;
-    shell->interface_BC_robin = user.interface_BC_robin;
-    shell->robin_alpha = user.robin_alpha;
 
     PCShellSetContext(pc, shell);
     PCShellSetSetUp(pc, PCSetUp_SampleShell);
@@ -208,6 +188,74 @@ int main(int argc,char **argv)
   /* ------------ solve J * U = b with KSP directly ------------ */
   ierr = KSPSetOperators(ksp, J, J);CHKERRQ(ierr);
   ierr = KSPSetUp(ksp);CHKERRQ(ierr);
+
+  /* ------------ optional matrix dump for eigenvalue analysis ------------ */
+  if (user.dump_matrices) {
+    PetscMPIInt rank;
+    MPI_Comm_rank(PETSC_COMM_WORLD, &rank);
+    PetscInt N;
+    MatGetSize(J, &N, NULL);
+
+    /* 1. Dump J in PETSc binary format (readable by petsc4py) */
+    {
+      char fname_J[64];
+      snprintf(fname_J, sizeof(fname_J), "J_%d-Nsub_%dx%d.dat", (int)user.Nsub, (int)user.nx, (int)user.nt);
+      PetscViewer vJ;
+      PetscViewerBinaryOpen(PETSC_COMM_WORLD, fname_J, FILE_MODE_WRITE, &vJ);
+      MatView(J, vJ);
+      PetscViewerDestroy(&vJ);
+      PetscPrintf(PETSC_COMM_WORLD, "Dumped J (%d x %d) to %s\n", (int)N, (int)N, fname_J);
+    }
+
+    /* 2. Build M^{-1}J column-by-column; write dense binary (int32 N, float64 N*N) on rank 0 */
+    {
+      PC pc_local;
+      KSPGetPC(ksp, &pc_local);
+
+      Vec e_i, Je_i, MiJe_i, seq_vec;
+      VecScatter scatter;
+      VecCreateMPI(PETSC_COMM_WORLD, PETSC_DECIDE, N, &e_i);
+      VecDuplicate(e_i, &Je_i);
+      VecDuplicate(e_i, &MiJe_i);
+      VecScatterCreateToZero(MiJe_i, &scatter, &seq_vec);
+
+      PetscScalar *dense_PA = NULL;
+      if (rank == 0) PetscMalloc1((size_t)N * N, &dense_PA);
+
+      for (PetscInt col = 0; col < N; col++) {
+        VecZeroEntries(e_i);
+        VecSetValue(e_i, col, 1.0, INSERT_VALUES);
+        VecAssemblyBegin(e_i); VecAssemblyEnd(e_i);
+        MatMult(J, e_i, Je_i);
+        PCApply(pc_local, Je_i, MiJe_i);
+        VecScatterBegin(scatter, MiJe_i, seq_vec, INSERT_VALUES, SCATTER_FORWARD);
+        VecScatterEnd  (scatter, MiJe_i, seq_vec, INSERT_VALUES, SCATTER_FORWARD);
+        if (rank == 0) {
+          const PetscScalar *arr;
+          VecGetArrayRead(seq_vec, &arr);
+          for (PetscInt row = 0; row < N; row++)
+            dense_PA[col * N + row] = arr[row];  /* column-major */
+          VecRestoreArrayRead(seq_vec, &arr);
+        }
+      }
+
+      char fname_PA[64];
+      snprintf(fname_PA, sizeof(fname_PA), "PA_dense_%d-Nsub_%dx%d.bin", (int)user.Nsub, (int)user.nx, (int)user.nt);
+      if (rank == 0) {
+        FILE *fp = fopen(fname_PA, "wb");
+        fwrite(&N,       sizeof(PetscInt),    1,             fp);
+        fwrite(dense_PA, sizeof(PetscScalar), (size_t)N * N, fp);
+        fclose(fp);
+        PetscFree(dense_PA);
+      }
+      PetscPrintf(PETSC_COMM_WORLD,
+                  "Dumped M^{-1}J (%d x %d) to %s\n", (int)N, (int)N, fname_PA);
+
+      VecScatterDestroy(&scatter);
+      VecDestroy(&seq_vec);
+      VecDestroy(&e_i); VecDestroy(&Je_i); VecDestroy(&MiJe_i);
+    }
+  }
 
   PetscPrintf(PETSC_COMM_WORLD, "\n=== KSP solve (no SNES updates) ===\n");
   ierr = KSPSolve(ksp, b, U);CHKERRQ(ierr);

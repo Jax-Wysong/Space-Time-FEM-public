@@ -6,7 +6,7 @@
 PetscErrorCode PCSetUp_SampleShell(PC pc);
 PetscErrorCode PCDestroy_SampleShell(PC pc);
 PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y);
-PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscBool impose_left_dirichlet, const PetscScalar *Uslab, PC pc);
+PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscInt n_bc_levels, const PetscScalar *Uslab, PC pc);
 // static PetscErrorCode FillUslabFromGlobalScatter(Vec Ucur, VecScatter scat, Vec Utmp, PetscInt nloc, PetscScalar **Uslab_out);
 // static PetscErrorCode FillUslabFromGlobal(const Vec Ucur, const PetscInt *glindex, PetscInt nloc, PetscScalar **Uslab_out);
 // static PetscErrorCode PackSlabFromDMDALocal(DM dm, Vec xloc, PetscInt nx, PetscInt t0_global, PetscInt t1_global, Vec x_slab);

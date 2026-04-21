@@ -192,7 +192,7 @@ PetscErrorCode FormJacobian(SNES snes, Vec U, Mat J, Mat P, void *ctx)
     nlocal = idx;
   }
 
-  /* Zero those rows & cols and put 1 on the diagonal */
+  /* Zero those rows and put 1 on the diagonal */
   MatZeroRowsStencil(J, nlocal, bc, 1.0, NULL, NULL);
   if (P != J) MatZeroRowsStencil(P, nlocal, bc, 1.0, NULL, NULL);
 

@@ -23,6 +23,7 @@ void Compute_linear_stiffness(PetscScalar A_time[4][4], PetscScalar A_space[4][4
 	  A_time[1][0] = -h*twvth; A_time[1][1] = -h*sixth; A_time[1][2] = h*sixth; A_time[1][3] = h*twvth;
 	  A_time[2][0] = -h*twvth; A_time[2][1] = -h*sixth; A_time[2][2] = h*sixth; A_time[2][3] = h*twvth;
 	  A_time[3][0] = -h*sixth; A_time[3][1] = -h*twvth; A_time[3][2] = h*twvth; A_time[3][3] = h*sixth;
+
 	/////////// Mass Term (u * phi) ////////////
 	  A_standard[0][0] = h2*ninth; A_standard[0][1] = h2*eteen; A_standard[0][2] = h2*thrsx; A_standard[0][3] = h2*eteen;
 	  A_standard[1][0] = h2*eteen; A_standard[1][1] = h2*ninth; A_standard[1][2] = h2*eteen; A_standard[1][3] = h2*thrsx;

@@ -1,13 +1,13 @@
 #!/bin/bash
 #  ---------- Slurm directives ----------
-#SBATCH --job-name=LU         # job name  ← change if you wish
-#SBATCH --partition=quickq       # queue/partition
+#SBATCH --job-name=time         # job name  ← change if you wish
+#SBATCH --partition=bigmem       # queue/partition
 #SBATCH --nodes=1                 # total nodes          ← pick what you need
-#SBATCH --ntasks-per-node=4      # MPI ranks per node   ← match cores/socket
-#SBATCH --time=00-02:00:00         # wall-clock limit
-#SBATCH --mem=80G
-#SBATCH --output=Thesis-Results/LU-vs-RAS-scale/Wave_PC_1p1_2400x2400_LU_4ranks.out    # stdout+stderr file (%j = job-id)
-#SBATCH --error=Thesis-Results/LU-vs-RAS-scale/error_files/Wave_PC_1p1_2400x2400_LU_4ranks.err      # optional separate stderr
+#SBATCH --ntasks-per-node=20     # MPI ranks per node   ← match cores/socket
+#SBATCH --time=00-00:10:00         # wall-clock limit
+#SBATCH --mem=20G
+#SBATCH --output=Thesis-Results/eigen-stuff/p~1%/Wave_PC_1p1_100x3800_RAS_20ranks.out    # stdout+stderr file (%j = job-id)
+#SBATCH --error=Thesis-Results/eigen-stuff/p~1%/error_files/Wave_PC_1p1_100x3800_RAS_20ranks.err      # optional separate stderr
 
 # needed for multi-node runs on innovator
 
@@ -25,58 +25,52 @@ NTASKS=$(( $SLURM_NNODES * $SLURM_NTASKS_PER_NODE ))
 # PETSc executable (already built with DMDA support)
 EXE=.././wave_1p1_PC
 
-###------------- LU command line options --------------------- #
+# --------- RAS command line options ---------- #
 srun --mpi=pmix_v3 -n ${NTASKS} \
   ${EXE} \
   -da_processors_x 1 \
   -dm_view \
   -snes_type ksponly \
-  -ksp_type preonly \
-  -pc_type lu \
-  -pc_factor_mat_solver_type mumps \
-  -use_shell_pc 0 \
-  -slab_pc_nonlinear 0 \
-  -slab_pc_ras 0 \
-  -ksp_monitor_true_residual -ksp_converged_reason \
-  -ksp_atol 1e-04 \
+  -ksp_type gmres -ksp_gmres_restart 200 \
+  -use_shell_pc 1 \
+  -slab_pc_ras 1 \
+  -ksp_atol 1e-4 \
+  -ksp_rtol 1e-50 \
+  -ksp_view_final_residual \
+  -ksp_converged_reason \
   -IC 1 \
   -xL -5.0 -xR 5.0 \
   -t0 0.0 -tF 10.0 \
-  -nx 2400 -nt 2400 \
-  -overlap 0 \
-  -interface_width 0 \
+  -nx 100 -nt 3800 \
+  -Nsub 20 \
+  -overlap 1 \
+  -interface_width 1 \
+  -dump_matrices 0 \
   -memory_view \
-  -log_view :Thesis-Results/LU-vs-RAS-scale/PC_1p1_2400x2400_LU_4ranks_log-view.txt 
+  -log_view :Thesis-Results/eigen-stuff/p~1%/Wave_PC_1p1_100x3800_RAS_20ranks_log-view.txt
 
-# # --------- RAS command line options ---------- #
+# ###------------- LU command line options --------------------- #
 # srun --mpi=pmix_v3 -n ${NTASKS} \
 #   ${EXE} \
 #   -da_processors_x 1 \
 #   -dm_view \
 #   -snes_type ksponly \
-#   -ksp_type gmres -ksp_gmres_restart 200 \
-#   -use_shell_pc 1 \
-#   -slab_pc_ras 1 \
-#   -slab_pc_nonlinear 0 \
-#   -interface_BC_all 1 \
-#   -interface_BC_dirichlet 0 \
-#   -interface_BC_neumann 0 \
-#   -interface_BC_none 0 \
-#   -interface_D_N_alternate 0 \
-#   -interface_BC_robin 0 \
-#   -robin_alpha 1.0 \
-#   -ksp_atol 1e-03 \
-#   -ksp_view_final_residual \
-#   -ksp_converged_reason \
+#   -ksp_type preonly \
+#   -pc_type lu \
+#   -pc_factor_mat_solver_type mumps \
+#   -use_shell_pc 0 \
+#   -slab_pc_ras 0 \
+#   -ksp_monitor_true_residual -ksp_converged_reason \
+#   -ksp_atol 1e-04 \
 #   -IC 1 \
 #   -xL -5.0 -xR 5.0 \
 #   -t0 0.0 -tF 10.0 \
-#   -nx 60 -nt 60 \
-#   -Nsub 4 \
-#   -overlap 3 \
+#   -nx 100 -nt 100 \
+#   -overlap 0 \
 #   -interface_width 0 \
 #   -memory_view \
-#   -log_view :RAS-iw-0/PC_1p1_60x60_RAS_4ranks-ov3_log-view.txt
+#   -log_view :../analysis/testing-testing/Wave_PC_1p1_100x100_LU_4ranks_log-view.txt 
+
 
 # # # ------------- LU with FS command line options -------------- #
 # srun --mpi=pmix_v3 -n ${NTASKS} \
