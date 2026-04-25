@@ -128,6 +128,21 @@ ax.set_ylim(0, max(pct_s3) * 1.2 + 2)
 ax.legend(fontsize=10)
 ax.grid(True, alpha=0.3)
 
+# # Panel 4: collapse
+# ax = axes[1, 1]
+# ax.plot(ratio_s1, pct_s1, 'o', color='#1f77b4', markersize=8,
+#         label=f'vary $n_x$ ($N_\\mathrm{{sub}}={nsub_s1}$, $n_t={nt_s1}$)', zorder=3)
+# ax.plot(ratio_s2, pct_s2, 's', color='#d62728', markersize=8,
+#         label=f'vary $n_t$ ($N_\\mathrm{{sub}}={nsub_s2}$, $n_x={nx_s2}$)', zorder=3)
+# ax.plot(ratio_s3, pct_s3, '^', color='#2ca02c', markersize=8,
+#         label=f'vary $N_\\mathrm{{sub}}$ ($n_x={nx_s3}$, $n_t={nt_s3}$)', zorder=3)
+# ax.plot(ratio_fine, Prediction_coll, **tkw, label=r'Prediction  $200\cdot(N_\mathrm{sub}-1)/n_t$')
+# ax.set_xlabel(r'$(N_\mathrm{sub}-1)\,/\,n_t$', fontsize=12)
+# ax.set_ylabel('% polluted', fontsize=12)
+# ax.set_title('Collapse: all sweeps', fontsize=11)
+# ax.legend(fontsize=9)
+# ax.grid(True, alpha=0.3)
+
 out = os.path.join(BASE, 'polluted_scaling.png')
 fig.savefig(out, dpi=150)
 print(f'Saved {out}')
