@@ -1,0 +1,42 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 10 MPI processes
+  type: da
+Processor [0] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 0 9
+Processor [1] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 9 18
+Processor [2] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 18 27
+Processor [3] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 27 36
+Processor [4] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 36 45
+Processor [5] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 45 54
+Processor [6] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 54 63
+Processor [7] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 63 72
+Processor [8] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 72 81
+Processor [9] M 200 N 90 m 1 n 10 w 2 s 2
+X range of indices: 0 200, Y range of indices: 81 90
+
+=================== Linear Wave Problem ===================
+
+Using nx = 200, nt = 90
+xL = -5., xR = 5.
+t0 = 0., tF = 10.
+hx = 5.02512563e-02, ht = 1.12359551e-01
+
+=== Solve (T=[0.000,10.000], nt=90) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 357
+KSP final norm of residual 1.37455e-06
+Absolute residual norm = 1.37455380e-06
+U  L2 error norm  = 9.39152180e-03
+U  max error norm = 3.93187747e-03
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 2.0558e+09 max 2.0634e+08 min 2.0335e+08
+Current process memory:                                  total 1.9865e+09 max 1.9925e+08 min 1.9744e+08

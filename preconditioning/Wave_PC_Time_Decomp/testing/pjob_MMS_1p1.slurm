@@ -1,13 +1,13 @@
 #!/bin/bash
 #  ---------- Slurm directives ----------
 #SBATCH --job-name=time         # job name  ← change if you wish
-#SBATCH --partition=bigmem       # queue/partition
+#SBATCH --partition=compute,quickq       # queue/partition
 #SBATCH --nodes=1                 # total nodes          ← pick what you need
 #SBATCH --ntasks-per-node=20     # MPI ranks per node   ← match cores/socket
 #SBATCH --time=00-00:10:00         # wall-clock limit
-#SBATCH --mem=20G
-#SBATCH --output=Thesis-Results/eigen-stuff/p~1%/Wave_PC_1p1_100x3800_RAS_20ranks.out    # stdout+stderr file (%j = job-id)
-#SBATCH --error=Thesis-Results/eigen-stuff/p~1%/error_files/Wave_PC_1p1_100x3800_RAS_20ranks.err      # optional separate stderr
+#SBATCH --mem=10G
+#SBATCH --output=Thesis-Results/pollution_percent_nx-200/p~1%/Wave_PC_1p1_200x3800_RAS_20ranks.out    # stdout+stderr file (%j = job-id)
+#SBATCH --error=Thesis-Results/pollution_percent_nx-200/p~1%/error_files/Wave_PC_1p1_200x3800_RAS_20ranks.err      # optional separate stderr
 
 # needed for multi-node runs on innovator
 
@@ -41,13 +41,13 @@ srun --mpi=pmix_v3 -n ${NTASKS} \
   -IC 1 \
   -xL -5.0 -xR 5.0 \
   -t0 0.0 -tF 10.0 \
-  -nx 100 -nt 3800 \
+  -nx 200 -nt 3800 \
   -Nsub 20 \
   -overlap 1 \
   -interface_width 1 \
   -dump_matrices 0 \
   -memory_view \
-  -log_view :Thesis-Results/eigen-stuff/p~1%/Wave_PC_1p1_100x3800_RAS_20ranks_log-view.txt
+  -log_view :Thesis-Results/pollution_percent_nx-200/p~1%/Wave_PC_1p1_200x3800_RAS_20ranks_log-view.txt
 
 # ###------------- LU command line options --------------------- #
 # srun --mpi=pmix_v3 -n ${NTASKS} \

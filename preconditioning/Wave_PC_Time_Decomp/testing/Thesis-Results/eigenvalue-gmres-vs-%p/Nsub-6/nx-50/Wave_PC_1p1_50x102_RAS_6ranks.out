@@ -1,0 +1,34 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 6 MPI processes
+  type: da
+Processor [0] M 50 N 102 m 1 n 6 w 2 s 2
+X range of indices: 0 50, Y range of indices: 0 17
+Processor [1] M 50 N 102 m 1 n 6 w 2 s 2
+X range of indices: 0 50, Y range of indices: 17 34
+Processor [2] M 50 N 102 m 1 n 6 w 2 s 2
+X range of indices: 0 50, Y range of indices: 34 51
+Processor [3] M 50 N 102 m 1 n 6 w 2 s 2
+X range of indices: 0 50, Y range of indices: 51 68
+Processor [4] M 50 N 102 m 1 n 6 w 2 s 2
+X range of indices: 0 50, Y range of indices: 68 85
+Processor [5] M 50 N 102 m 1 n 6 w 2 s 2
+X range of indices: 0 50, Y range of indices: 85 102
+
+=================== Linear Wave Problem ===================
+
+Using nx = 50, nt = 102
+xL = -5., xR = 5.
+t0 = 0., tF = 10.
+hx = 2.04081633e-01, ht = 9.90099010e-02
+
+=== Solve (T=[0.000,10.000], nt=102) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 97
+KSP final norm of residual 2.62056e-06
+Absolute residual norm = 2.62056275e-06
+U  L2 error norm  = 5.96394582e-02
+U  max error norm = 2.95396560e-02
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 1.1693e+09 max 1.9542e+08 min 1.9417e+08
+Current process memory:                                  total 1.1507e+09 max 1.9216e+08 min 1.9140e+08
