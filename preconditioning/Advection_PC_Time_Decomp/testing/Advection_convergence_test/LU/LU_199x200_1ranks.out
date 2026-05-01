@@ -1,0 +1,32 @@
+Using overlap 0 and interface width 0, so stencil width = 1
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 199 N 200 m 1 n 4 w 1 s 1
+X range of indices: 0 199, Y range of indices: 0 50
+Processor [1] M 199 N 200 m 1 n 4 w 1 s 1
+X range of indices: 0 199, Y range of indices: 50 100
+Processor [2] M 199 N 200 m 1 n 4 w 1 s 1
+X range of indices: 0 199, Y range of indices: 100 150
+Processor [3] M 199 N 200 m 1 n 4 w 1 s 1
+X range of indices: 0 199, Y range of indices: 150 200
+
+=================== Advection Equation ===================
+
+Using nx = 199, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 5.02512563e-03, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    0 KSP none resid norm 5.939009314100e+00 true resid norm 2.663717265942e-12 ||r(i)||/||b|| 4.485120539579e-13
+    1 KSP none resid norm 2.663717265942e-12 true resid norm 2.663717265942e-12 ||r(i)||/||b|| 4.485120539579e-13
+    Linear solve converged due to CONVERGED_ITS iterations 1
+Absolute residual norm = 2.66371727e-12
+U  L2 error norm  = 1.08634321e-04
+U  max error norm = 4.21337185e-04
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 8.5366e+08 max 2.1752e+08 min 2.1094e+08
+Current process memory:                                  total 7.9516e+08 max 2.0366e+08 min 1.9617e+08
