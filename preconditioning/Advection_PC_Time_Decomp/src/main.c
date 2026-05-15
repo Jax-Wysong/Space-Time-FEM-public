@@ -31,6 +31,7 @@ int main(int argc,char **argv)
   user.slab_pc_ras = PETSC_FALSE;
   user.save = 0;
   user.dump_matrices = PETSC_FALSE;
+  user.use_char_ic   = PETSC_FALSE;
 
   PetscOptionsBegin(PETSC_COMM_WORLD,NULL,
                     "Space-time solver options",NULL);
@@ -48,6 +49,7 @@ int main(int argc,char **argv)
   PetscOptionsReal ("-t0"   ,"initial t"      ,"" ,user.t0   ,&user.t0   ,NULL);
   PetscOptionsReal ("-tF"   ,"final   t"      ,"" ,user.tF   ,&user.tF   ,NULL);
   PetscOptionsReal ("-speed" ,"advection speed"         ,"" ,user.c ,&user.c ,NULL);
+  PetscOptionsBool("-use_char_ic","use characteristic-mapped IC for non-first slabs","",user.use_char_ic,&user.use_char_ic,NULL);
   PetscOptionsEnd();
 
 
@@ -61,7 +63,7 @@ int main(int argc,char **argv)
                DM_BOUNDARY_NONE,                /* t boundary            */
                DMDA_STENCIL_BOX,                /* stencil               */
                user.nx, user.nt,                /* global grid           */
-               PETSC_DECIDE,PETSC_DECIDE,       /* owner splits          */
+               1,PETSC_DECIDE,                  /* 1 proc in x, decompose in t only */
                /* ----- dof  ---- */ 1,         /* (u) per node      */
                /* stencil width */ swidth,   /* need +1 in x,+1 in t  */
                NULL,NULL,                       /* no custom d-grid      */

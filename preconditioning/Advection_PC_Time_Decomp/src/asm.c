@@ -20,6 +20,33 @@ static inline PetscInt gid(PetscInt nx, PetscInt t, PetscInt x, PetscInt c)
   return 1*(t*nx + x) + c; /* dofs: u=0 */
 }
 
+/* Replace the local-t=0 entries of x_slab with characteristic-mapped v[t=0] values.
+   ic_scratch must already hold the broadcast t=0 slice of the Krylov vector. */
+static PetscErrorCode OverwriteSlabIC(SampleShellPC *shell,
+                                      PetscInt t0_global, Vec x_slab)
+{
+  if (!shell->use_char_ic || t0_global == 0) return 0;
+
+  const AppCtx   *user  = shell->user;
+  const PetscInt  nx    = shell->nx;
+  const PetscReal shift = user->c * (PetscReal)t0_global * user->ht / user->hx;
+
+  PetscScalar *xs;
+  VecGetArray(x_slab, &xs);
+  for (PetscInt xi = 0; xi < nx; xi++) {
+    PetscReal src = (PetscReal)xi - shift;
+    src -= (PetscReal)nx * PetscFloorReal(src / (PetscReal)nx);
+    PetscInt  ix_lo = (PetscInt)src % nx;
+    PetscInt  ix_hi = (ix_lo + 1) % nx;
+    PetscReal alpha = src - PetscFloorReal(src);
+    xs[gid(nx, 0, xi, 0)] =
+        (1.0 - alpha) * shell->ic_scratch[ix_lo]
+      +         alpha * shell->ic_scratch[ix_hi];
+  }
+  VecRestoreArray(x_slab, &xs);
+  return 0;
+}
+
 static PetscErrorCode PackSlabFromDMDALocal(
     DM dm, Vec xloc,
     PetscInt nx,
@@ -360,6 +387,11 @@ PetscErrorCode PCSetUp_SampleShell(PC pc)
     ierr = KSPSetUp(shell->ksp_end);CHKERRQ(ierr);
   }
 
+  shell->use_char_ic = user->use_char_ic;
+  if (user->use_char_ic) {
+    ierr = PetscMalloc1(shell->nx, &shell->ic_scratch); CHKERRQ(ierr);
+  }
+
   PetscFunctionReturn(0);
 }
 
@@ -384,27 +416,36 @@ PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y)
   MPI_Comm_rank(PETSC_COMM_WORLD, &rank);
   MPI_Comm_size(PETSC_COMM_WORLD, &size);
 
-  /* fill ghosted local copy of x once */
-  ierr = DMGlobalToLocalBegin(shell->dm, x, INSERT_VALUES, shell->xloc);CHKERRQ(ierr);
-  ierr = DMGlobalToLocalEnd  (shell->dm, x, INSERT_VALUES, shell->xloc);CHKERRQ(ierr);
-
-
   if (size != (PetscMPIInt)Nsub) {
     SETERRQ(PETSC_COMM_WORLD,PETSC_ERR_ARG_INCOMP,"This layout assumes MPI size == Nsub");
   }
 
+  /* Fill ghosted local copy of x */
+  ierr = DMGlobalToLocalBegin(shell->dm, x, INSERT_VALUES, shell->xloc);CHKERRQ(ierr);
+  ierr = DMGlobalToLocalEnd  (shell->dm, x, INSERT_VALUES, shell->xloc);CHKERRQ(ierr);
+
+  /* Broadcast t=0 slice of x to all ranks for characteristic IC */
+  if (shell->use_char_ic) {
+    if (rank == 0) {
+      PetscScalar ***xa;
+      ierr = DMDAVecGetArrayDOFRead(shell->dm, shell->xloc, &xa); CHKERRQ(ierr);
+      for (PetscInt xi = 0; xi < shell->nx; xi++)
+        shell->ic_scratch[xi] = xa[0][xi][0];
+      ierr = DMDAVecRestoreArrayDOFRead(shell->dm, shell->xloc, &xa); CHKERRQ(ierr);
+    }
+    ierr = MPI_Bcast(shell->ic_scratch, shell->nx, MPIU_SCALAR, 0, PETSC_COMM_WORLD);
+    CHKERRQ(ierr);
+  }
+
+  /* ===== Fine solve: M_RAS^{-1} applied to xloc ===== */
   if (rank == 0) {
     PetscInt t0 = 0;
-    /* clip to nt-1: no right neighbour when Nsub==1 */
     PetscInt t1     = PetscMin(blksize + ov - 1, shell->nt - 1);
     PetscInt t_add1 = PetscMin(blksize - 1,      shell->nt - 1);
-    /* Change x_start from DMDA ordering to local/sequential ordering from t0 - t1*/
     ierr = PackSlabFromDMDALocal(shell->dm, shell->xloc, nx, t0, t1, shell->x_start);CHKERRQ(ierr);
-
+    ierr = OverwriteSlabIC(shell, t0, shell->x_start); CHKERRQ(ierr);
     ierr = VecZeroEntries(shell->y_start);CHKERRQ(ierr);
-    /* solve A_start y_start = x_start sequentially*/
     ierr = KSPSolve(shell->ksp_start, shell->x_start, shell->y_start);CHKERRQ(ierr);
-
     if (shell->use_ras) {
       ierr = AddBackInteriorToGlobal_DMDARows(shell->dm, y, nx, t0, 0, t_add1, shell->y_start);CHKERRQ(ierr);
     } else {
@@ -416,12 +457,10 @@ PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y)
     PetscInt s  = rank;
     PetscInt t0 = s*blksize - iw - ov;
     PetscInt t1 = (s+1)*blksize + ov - 1;
-
     ierr = PackSlabFromDMDALocal(shell->dm, shell->xloc, nx, t0, t1, shell->x_middle);CHKERRQ(ierr);
-
+    ierr = OverwriteSlabIC(shell, t0, shell->x_middle); CHKERRQ(ierr);
     ierr = VecZeroEntries(shell->y_middle);CHKERRQ(ierr);
     ierr = KSPSolve(shell->ksp_middle, shell->x_middle, shell->y_middle);CHKERRQ(ierr);
-
     if (shell->use_ras) {
       ierr = AddBackInteriorToGlobal_DMDARows(shell->dm, y, nx, t0,
                                              s*blksize, (s+1)*blksize-1,
@@ -434,13 +473,10 @@ PetscErrorCode PCApply_SampleShell(PC pc, Vec x, Vec y)
   if (rank == Nsub-1 && Nsub > 1) {
     PetscInt t0 = (Nsub-1)*blksize - iw - ov;
     PetscInt t1 = shell->nt - 1;
-
     ierr = PackSlabFromDMDALocal(shell->dm, shell->xloc, nx, t0, t1, shell->x_end);CHKERRQ(ierr);
-
-
+    ierr = OverwriteSlabIC(shell, t0, shell->x_end); CHKERRQ(ierr);
     ierr = VecZeroEntries(shell->y_end);CHKERRQ(ierr);
     ierr = KSPSolve(shell->ksp_end, shell->x_end, shell->y_end);CHKERRQ(ierr);
-
     if (shell->use_ras) {
       ierr = AddBackInteriorToGlobal_DMDARows(shell->dm, y, nx, t0,
                                              (Nsub-1)*blksize, shell->nt-1,
@@ -482,6 +518,8 @@ PetscErrorCode PCDestroy_SampleShell(PC pc)
   if (shell->A_start)   { ierr = MatDestroy(&shell->A_start);CHKERRQ(ierr); }
   if (shell->A_middle)  { ierr = MatDestroy(&shell->A_middle);CHKERRQ(ierr); }
   if (shell->A_end)     { ierr = MatDestroy(&shell->A_end);CHKERRQ(ierr); }
+
+  if (shell->ic_scratch) { ierr = PetscFree(shell->ic_scratch); CHKERRQ(ierr); }
 
   ierr = PetscFree(shell);CHKERRQ(ierr);
   PetscFunctionReturn(0);

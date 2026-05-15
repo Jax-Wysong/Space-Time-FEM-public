@@ -8,7 +8,6 @@
 #include <petscmat.h>
 #include <petscvec.h>
 #include <petscmath.h>
-
 typedef struct {
   PetscInt nx, nt, IC, overlap, interface_width, Nsub, save;
   PetscReal hx, ht;
@@ -25,6 +24,8 @@ typedef struct {
   PetscBool dump_matrices; /* if true, dump J and M^{-1}J to binary files for testing */
 
   PetscReal c; /* advection speed for advection equation */
+
+  PetscBool use_char_ic; /* use characteristic-mapped IC for non-first slabs */
 
 	} AppCtx;
 
@@ -64,6 +65,9 @@ typedef struct {
   PetscBool interface_BC_robin;
   PetscReal robin_alpha;
 
+  /* Characteristic-mapped IC */
+  PetscBool    use_char_ic;
+  PetscScalar *ic_scratch; /* size nx; holds t=0 slice broadcast from rank 0 */
 
 } SampleShellPC;
 
