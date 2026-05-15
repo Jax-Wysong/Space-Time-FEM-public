@@ -1,0 +1,295 @@
+
+
+
+========================================================
+ Characteristic IC Sweep: nx=100 nt=200
+========================================================
+
+
+-------- Nsub=1 --------
+--- Baseline (no char features) ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 1
+Absolute residual norm = 5.98597102e-13
+U  L2 error norm  = 1.08854694e-04
+U  max error norm = 4.22108336e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+--- char_ic ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 1
+Absolute residual norm = 5.98597102e-13
+U  L2 error norm  = 1.08854694e-04
+U  max error norm = 4.22108336e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+
+-------- Nsub=2 --------
+--- Baseline (no char features) ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 25
+Absolute residual norm = 3.61887893e-10
+U  L2 error norm  = 1.08854285e-04
+U  max error norm = 4.22103975e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+--- char_ic ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 18
+Absolute residual norm = 8.32345741e-09
+U  L2 error norm  = 1.08854878e-04
+U  max error norm = 4.22109236e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+
+-------- Nsub=4 --------
+--- Baseline (no char features) ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 101
+Absolute residual norm = 7.22581975e-09
+U  L2 error norm  = 1.08851879e-04
+U  max error norm = 4.22095740e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+--- char_ic ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 69
+Absolute residual norm = 2.27797270e-09
+U  L2 error norm  = 1.08857894e-04
+U  max error norm = 4.22104650e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+
+-------- Nsub=8 --------
+--- Baseline (no char features) ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 579
+Absolute residual norm = 1.33380142e-09
+U  L2 error norm  = 1.08863236e-04
+U  max error norm = 4.22150002e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+--- char_ic ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 351
+Absolute residual norm = 1.39833441e-08
+U  L2 error norm  = 1.08860421e-04
+U  max error norm = 4.22135612e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+
+-------- Nsub=10 --------
+--- Baseline (no char features) ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 1169
+Absolute residual norm = 1.78782230e-09
+U  L2 error norm  = 1.08857833e-04
+U  max error norm = 4.22113499e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+--- char_ic ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 473
+Absolute residual norm = 3.00183433e-09
+U  L2 error norm  = 1.08857142e-04
+U  max error norm = 4.22098383e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+
+-------- Nsub=20 --------
+--- Baseline (no char features) ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve did not converge due to DIVERGED_ITS iterations 10000
+Absolute residual norm = 1.14187070e-05
+U  L2 error norm  = 4.45802269e-04
+U  max error norm = 9.37497879e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
+--- char_ic ---
+Using overlap 0 and interface width 1, so stencil width = 1
+
+=================== Advection Equation ===================
+
+Using nx = 100, nt = 200
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 1.00000000e-02, ht = 5.02512563e-03
+
+=== Solve (T=[0.000,1.000], nt=200) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 3823
+Absolute residual norm = 1.95733525e-09
+U  L2 error norm  = 1.08879750e-04
+U  max error norm = 4.22242302e-04
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
