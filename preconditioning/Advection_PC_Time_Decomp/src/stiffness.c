@@ -22,5 +22,5 @@ void Compute_linear_stiffness(PetscScalar A_time[4][4], PetscScalar A_space[4][4
 	  A_time[1][0] = -hx*twvth; A_time[1][1] = -hx*sixth; A_time[1][2] = hx*sixth; A_time[1][3] = hx*twvth;
 	  A_time[2][0] = -hx*twvth; A_time[2][1] = -hx*sixth; A_time[2][2] = hx*sixth; A_time[2][3] = hx*twvth;
 	  A_time[3][0] = -hx*sixth; A_time[3][1] = -hx*twvth; A_time[3][2] = hx*twvth; A_time[3][3] = hx*sixth;
-	 
+
 	}

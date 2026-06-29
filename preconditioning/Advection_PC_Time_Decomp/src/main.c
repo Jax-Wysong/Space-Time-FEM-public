@@ -9,7 +9,6 @@
 #include "asm.h"
 #include <petscviewer.h>
 
-
 /*----------------------------------------------------*
    Parallel driver with DMDA
  *----------------------------------------------------*/
@@ -31,7 +30,7 @@ int main(int argc,char **argv)
   user.slab_pc_ras = PETSC_FALSE;
   user.save = 0;
   user.dump_matrices = PETSC_FALSE;
-  user.use_char_ic   = PETSC_FALSE;
+  user.use_char_ic    = PETSC_FALSE;
 
   PetscOptionsBegin(PETSC_COMM_WORLD,NULL,
                     "Space-time solver options",NULL);
@@ -139,7 +138,6 @@ int main(int argc,char **argv)
   /* ------------ fill initial conditions on rank-local part ------------ */
   ierr = VecZeroEntries(U);CHKERRQ(ierr);
 
-
   /* ------------ solve ------------ */
   
 	PetscPrintf(PETSC_COMM_WORLD, "\n=================== Advection Equation ===================\n\nUsing nx = %d, nt = %d\n", (int)user.nx, (int)user.nt);
@@ -162,9 +160,12 @@ int main(int argc,char **argv)
 
   /* ------------ solve J * U = b with KSP directly ------------ */
   ierr = KSPSetOperators(ksp, J, J);CHKERRQ(ierr);
-  ierr = KSPSetUp(ksp);CHKERRQ(ierr);
+
+  PetscPrintf(PETSC_COMM_WORLD, "\n=== KSP solve (no SNES updates) ===\n");
+  ierr = KSPSolve(ksp, b, U);CHKERRQ(ierr);
 
   /* ------------ optional matrix dump for eigenvalue analysis ------------ */
+  /* Runs after solve so that PC is set up (KSPSolve did internal KSPSetUp). */
   if (user.dump_matrices) {
     PetscMPIInt rank;
     MPI_Comm_rank(PETSC_COMM_WORLD, &rank);
@@ -215,7 +216,9 @@ int main(int argc,char **argv)
       }
 
       char fname_PA[64];
-      snprintf(fname_PA, sizeof(fname_PA), "PA_dense_%d-Nsub_%dx%d.bin", (int)user.Nsub, (int)user.nx, (int)user.nt);
+      snprintf(fname_PA, sizeof(fname_PA), "PA_dense%s_%d-Nsub_%dx%d.bin",
+               user.use_char_ic ? "_KRAS" : "",
+               (int)user.Nsub, (int)user.nx, (int)user.nt);
       if (rank == 0) {
         FILE *fp = fopen(fname_PA, "wb");
         fwrite(&N,       sizeof(PetscInt),    1,             fp);
@@ -232,9 +235,6 @@ int main(int argc,char **argv)
     }
   }
 
-  PetscPrintf(PETSC_COMM_WORLD, "\n=== KSP solve (no SNES updates) ===\n");
-  ierr = KSPSolve(ksp, b, U);CHKERRQ(ierr);
-	
   /* calculate absolute residual norm*/
   Vec r;
   VecDuplicate(b, &r);

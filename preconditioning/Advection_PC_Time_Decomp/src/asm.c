@@ -14,35 +14,33 @@
 #include "stiffness.h"
 #include "nonlin.h"
 
-
 static inline PetscInt gid(PetscInt nx, PetscInt t, PetscInt x, PetscInt c)
 {
   return 1*(t*nx + x) + c; /* dofs: u=0 */
 }
 
-/* Replace the local-t=0 entries of x_slab with characteristic-mapped v[t=0] values.
-   ic_scratch must already hold the broadcast t=0 slice of the Krylov vector. */
+static inline PetscReal interp_wrap(const PetscScalar *arr, PetscInt nx, PetscReal pos)
+{
+  pos -= (PetscReal)nx * PetscFloorReal(pos / (PetscReal)nx);
+  PetscInt  lo = (PetscInt)pos % nx;
+  PetscInt  hi = (lo + 1) % nx;
+  PetscReal a  = pos - PetscFloorReal(pos);
+  return (1.0 - a) * PetscRealPart(arr[lo]) + a * PetscRealPart(arr[hi]);
+}
+
 static PetscErrorCode OverwriteSlabIC(SampleShellPC *shell,
                                       PetscInt t0_global, Vec x_slab)
 {
-  if (!shell->use_char_ic || t0_global == 0) return 0;
+  if (t0_global == 0) return 0;
+  if (!shell->use_char_ic) return 0;
 
-  const AppCtx   *user  = shell->user;
-  const PetscInt  nx    = shell->nx;
-  const PetscReal shift = user->c * (PetscReal)t0_global * user->ht / user->hx;
-
-  PetscScalar *xs;
+  const AppCtx   *user     = shell->user;
+  const PetscInt  nx       = shell->nx;
+  PetscScalar    *xs;
   VecGetArray(x_slab, &xs);
-  for (PetscInt xi = 0; xi < nx; xi++) {
-    PetscReal src = (PetscReal)xi - shift;
-    src -= (PetscReal)nx * PetscFloorReal(src / (PetscReal)nx);
-    PetscInt  ix_lo = (PetscInt)src % nx;
-    PetscInt  ix_hi = (ix_lo + 1) % nx;
-    PetscReal alpha = src - PetscFloorReal(src);
-    xs[gid(nx, 0, xi, 0)] =
-        (1.0 - alpha) * shell->ic_scratch[ix_lo]
-      +         alpha * shell->ic_scratch[ix_hi];
-  }
+  const PetscReal shift = user->c * (PetscReal)t0_global * user->ht / user->hx;
+  for (PetscInt xi = 0; xi < nx; xi++)
+    xs[gid(nx, 0, xi, 0)] = interp_wrap(shell->ic_scratch, nx, (PetscReal)xi - shift);
   VecRestoreArray(x_slab, &xs);
   return 0;
 }
@@ -519,7 +517,7 @@ PetscErrorCode PCDestroy_SampleShell(PC pc)
   if (shell->A_middle)  { ierr = MatDestroy(&shell->A_middle);CHKERRQ(ierr); }
   if (shell->A_end)     { ierr = MatDestroy(&shell->A_end);CHKERRQ(ierr); }
 
-  if (shell->ic_scratch) { ierr = PetscFree(shell->ic_scratch); CHKERRQ(ierr); }
+  if (shell->ic_scratch)   { ierr = PetscFree(shell->ic_scratch);   CHKERRQ(ierr); }
 
   ierr = PetscFree(shell);CHKERRQ(ierr);
   PetscFunctionReturn(0);
@@ -529,70 +527,23 @@ PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscBool impo
 {
   PetscErrorCode ierr;
   AppCtx *user = (AppCtx*)ctx;
-  SampleShellPC *shell = NULL;
-
   PetscFunctionBegin;
-  ierr = PCShellGetContext(pc, (void**)&shell);CHKERRQ(ierr);
-
-  /* Use the same element matrices as the DMDA Jacobian */
-  PetscScalar (*A_time)[4]     = user->A_time;
-  PetscScalar (*A_space)[4]    = user->A_space;
 
   ierr = MatZeroEntries(A);CHKERRQ(ierr);
 
-  /* element loop over (tElm,xElm) for quads */
   for (PetscInt tElm = 0; tElm < nt-1; ++tElm) {
     for (PetscInt xElm = 0; xElm < nx; ++xElm) {
-
-      /* Four corners in ordering:
-         0: (t,x)
-         1: (t,x+1)
-         2: (t+1,x+1)
-         3: (t+1,x)
-      */
-
-      /* for spatial periodicity */
       PetscInt xp = (xElm + 1) % nx;
-
-
-      PetscInt xg[4] = { xElm, xp, xp, xElm };
-      PetscInt tg[4] = { tElm, tElm,   tElm+1, tElm+1 };
-
-      /* Build the 4 dof indices for this element */
+      PetscInt xg[4] = { xElm, xp,    xp,      xElm   };
+      PetscInt tg[4] = { tElm, tElm,  tElm+1,  tElm+1 };
       PetscInt idx[4];
-      for (PetscInt a=0; a<4; ++a) {
-        idx[1*a + 0] = gid(nx, tg[a], xg[a], 0); /* u */
-      }
+      for (PetscInt a = 0; a < 4; ++a)
+        idx[a] = gid(nx, tg[a], xg[a], 0);
 
-      /* Element matrix M (4x4), same as FormJacobian */
       PetscScalar M[4][4] = {{0}};
-
-
-      for (PetscInt i=0; i<4; ++i) {
-        PetscInt r_u = 1*i;     /* row for eqn1 at corner i */
-        for (PetscInt j=0; j<4; ++j) {
-          PetscInt c_u = 1*j;     /* col for u variable at corner j */
-          /* eqn1:  A_time*u + A_space*u (linear part of advection eqn) */
-          M[r_u][c_u] += (user->c)*A_space[i][j];
-          M[r_u][c_u] += A_time[i][j];
-
-        }
-      }
-
-      /* nonlinear convection Jacobian: d(u*u_x)/du, linearized at current Uslab */
-      // if (Uslab != NULL) {
-      //   PetscScalar u_l[4];
-      //   u_l[0] = Uslab[gid(nx, tElm,   xElm, 0)];
-      //   u_l[1] = Uslab[gid(nx, tElm,   xp,   0)];
-      //   u_l[2] = Uslab[gid(nx, tElm+1, xp,   0)];
-      //   u_l[3] = Uslab[gid(nx, tElm+1, xElm, 0)];
-
-      //   PetscScalar J_u_nonlin[4][4];
-      //   ComputeJ_local_nonlinear(J_u_nonlin, u_l, user->hx, user->ht, user);
-      //   for (PetscInt i = 0; i < 4; ++i)
-      //     for (PetscInt j = 0; j < 4; ++j)
-      //       M[i][j] += J_u_nonlin[i][j];
-      // }
+      for (PetscInt i = 0; i < 4; ++i)
+        for (PetscInt j = 0; j < 4; ++j)
+          M[i][j] += user->c * user->A_space[i][j] + user->A_time[i][j];
 
       ierr = MatSetValues(A, 4, idx, 4, idx, &M[0][0], ADD_VALUES);CHKERRQ(ierr);
     }
@@ -601,22 +552,13 @@ PetscErrorCode stiff2(Mat A, PetscInt nx, PetscInt nt, void *ctx, PetscBool impo
   ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
   ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
 
-  /* Impose t=0 initial condition rows inside the slab:
-     Rows for all x at local t=0 for all components u,
-  */
-
-
   if (impose_left_dirichlet) {
-    PetscInt nbc = 1*nx;
     PetscInt *rows = NULL;
-    ierr = PetscMalloc1(nbc, &rows);CHKERRQ(ierr);
-    for (PetscInt x=0; x<nx; ++x) {
-      rows[1*x + 0] = gid(nx, 0, x, 0); /* u row */
- }
-
-    ierr = MatZeroRows(A, nbc, rows, 1.0, NULL, NULL);CHKERRQ(ierr);
+    ierr = PetscMalloc1(nx, &rows);CHKERRQ(ierr);
+    for (PetscInt x = 0; x < nx; x++)
+      rows[x] = gid(nx, 0, x, 0);
+    ierr = MatZeroRows(A, nx, rows, 1.0, NULL, NULL);CHKERRQ(ierr);
     ierr = PetscFree(rows);CHKERRQ(ierr);
-
     ierr = MatAssemblyBegin(A, MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
     ierr = MatAssemblyEnd(A,   MAT_FINAL_ASSEMBLY);CHKERRQ(ierr);
   }

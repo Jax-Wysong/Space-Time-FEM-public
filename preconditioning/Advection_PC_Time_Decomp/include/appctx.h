@@ -25,7 +25,7 @@ typedef struct {
 
   PetscReal c; /* advection speed for advection equation */
 
-  PetscBool use_char_ic; /* use characteristic-mapped IC for non-first slabs */
+  PetscBool use_char_ic;    /* use characteristic-mapped IC for non-first slabs */
 
 	} AppCtx;
 
@@ -67,7 +67,7 @@ typedef struct {
 
   /* Characteristic-mapped IC */
   PetscBool    use_char_ic;
-  PetscScalar *ic_scratch; /* size nx; holds t=0 slice broadcast from rank 0 */
+  PetscScalar *ic_scratch;    /* size nx; t=0 slice broadcast from rank 0 each PCApply */
 
 } SampleShellPC;
 

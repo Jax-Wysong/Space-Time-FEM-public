@@ -2,7 +2,7 @@
 
 
 ========================================================
- Characteristic IC Sweep: nx=100 nt=200
+ Characteristic IC Sweep: nx=300 nt=600
 ========================================================
 
 
@@ -12,19 +12,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
     Linear solve converged due to CONVERGED_ATOL iterations 1
-Absolute residual norm = 5.98597102e-13
-U  L2 error norm  = 1.08854694e-04
-U  max error norm = 4.22108336e-04
+Absolute residual norm = 1.70616913e-11
+U  L2 error norm  = 1.18822169e-05
+U  max error norm = 4.65087790e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -36,19 +36,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
     Linear solve converged due to CONVERGED_ATOL iterations 1
-Absolute residual norm = 5.98597102e-13
-U  L2 error norm  = 1.08854694e-04
-U  max error norm = 4.22108336e-04
+Absolute residual norm = 1.70616913e-11
+U  L2 error norm  = 1.18822169e-05
+U  max error norm = 4.65087790e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -62,19 +62,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 6
-Absolute residual norm = 1.05944115e-10
-U  L2 error norm  = 1.08854692e-04
-U  max error norm = 4.22108256e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 4
+Absolute residual norm = 1.91731032e-09
+U  L2 error norm  = 1.18818850e-05
+U  max error norm = 4.65069157e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -86,19 +86,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 5
-Absolute residual norm = 1.80555422e-10
-U  L2 error norm  = 1.08854670e-04
-U  max error norm = 4.22109145e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 4
+Absolute residual norm = 2.50565381e-09
+U  L2 error norm  = 1.18821623e-05
+U  max error norm = 4.65083593e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -112,19 +112,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 15
-Absolute residual norm = 7.00493906e-09
-U  L2 error norm  = 1.08855089e-04
-U  max error norm = 4.22115073e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 12
+Absolute residual norm = 7.04575633e-11
+U  L2 error norm  = 1.18822338e-05
+U  max error norm = 4.65085117e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -136,19 +136,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 13
-Absolute residual norm = 1.13385223e-09
-U  L2 error norm  = 1.08853369e-04
-U  max error norm = 4.22102339e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 9
+Absolute residual norm = 7.17854689e-10
+U  L2 error norm  = 1.18819270e-05
+U  max error norm = 4.65054406e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -162,19 +162,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 43
-Absolute residual norm = 4.81724906e-09
-U  L2 error norm  = 1.08854484e-04
-U  max error norm = 4.22117304e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 38
+Absolute residual norm = 1.08717026e-09
+U  L2 error norm  = 1.18826030e-05
+U  max error norm = 4.65104769e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -186,19 +186,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 33
-Absolute residual norm = 7.60183667e-09
-U  L2 error norm  = 1.08850667e-04
-U  max error norm = 4.22079277e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 27
+Absolute residual norm = 1.00464664e-09
+U  L2 error norm  = 1.18822532e-05
+U  max error norm = 4.65095756e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -212,19 +212,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 57
-Absolute residual norm = 3.17794321e-09
-U  L2 error norm  = 1.08856571e-04
-U  max error norm = 4.22106433e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 53
+Absolute residual norm = 9.06815681e-10
+U  L2 error norm  = 1.18830843e-05
+U  max error norm = 4.65180544e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -236,19 +236,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 44
-Absolute residual norm = 7.63725640e-09
-U  L2 error norm  = 1.08859737e-04
-U  max error norm = 4.22108940e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 39
+Absolute residual norm = 1.66400450e-10
+U  L2 error norm  = 1.18819821e-05
+U  max error norm = 4.65076164e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -262,19 +262,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 138
-Absolute residual norm = 5.65059781e-09
-U  L2 error norm  = 1.08858674e-04
-U  max error norm = 4.22105079e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 148
+Absolute residual norm = 4.92762148e-10
+U  L2 error norm  = 1.18831560e-05
+U  max error norm = 4.65115739e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -286,19 +286,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 106
-Absolute residual norm = 7.33603303e-09
-U  L2 error norm  = 1.08857506e-04
-U  max error norm = 4.22081985e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 104
+Absolute residual norm = 7.38552278e-10
+U  L2 error norm  = 1.18782284e-05
+U  max error norm = 4.64803248e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -312,19 +312,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 376
-Absolute residual norm = 3.38727816e-09
-U  L2 error norm  = 1.08852167e-04
-U  max error norm = 4.22199807e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 470
+Absolute residual norm = 4.66566248e-09
+U  L2 error norm  = 1.18451627e-05
+U  max error norm = 4.64120864e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
@@ -336,19 +336,19 @@ Using overlap 1 and interface width 1, so stencil width = 2
 
 =================== Advection Equation ===================
 
-Using nx = 100, nt = 200
+Using nx = 300, nt = 600
 xL = 0., xR = 1.
 t0 = 0., tF = 1.
 speed = 1.
-hx = 1.00000000e-02, ht = 5.02512563e-03
+hx = 3.33333333e-03, ht = 1.66944908e-03
 
-=== Solve (T=[0.000,1.000], nt=200) ===
+=== Solve (T=[0.000,1.000], nt=600) ===
 
 === KSP solve (no SNES updates) ===
-    Linear solve converged due to CONVERGED_ATOL iterations 169
-Absolute residual norm = 3.95415391e-09
-U  L2 error norm  = 1.08850650e-04
-U  max error norm = 4.21997193e-04
+    Linear solve converged due to CONVERGED_ATOL iterations 254
+Absolute residual norm = 1.37623837e-09
+U  L2 error norm  = 1.18700585e-05
+U  max error norm = 4.64303878e-05
 WARNING! There are options you set that were not used!
 WARNING! could be spelling mistake, etc!
 There are 3 unused database options. They are:
