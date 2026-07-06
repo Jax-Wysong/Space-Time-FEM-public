@@ -1,0 +1,48 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 10 MPI processes
+  type: da
+Processor [0] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 0 72
+Processor [1] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 72 144
+Processor [2] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 144 216
+Processor [3] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 216 288
+Processor [4] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 288 360
+Processor [5] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 360 432
+Processor [6] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 432 504
+Processor [7] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 504 576
+Processor [8] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 576 648
+Processor [9] M 200 N 720 m 1 n 10 w 1 s 2
+X range of indices: 0 200, Y range of indices: 648 720
+
+=================== Advection Equation ===================
+
+Using nx = 200, nt = 720
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 5.00000000e-03, ht = 1.39082058e-03
+
+=== Solve (T=[0.000,1.000], nt=720) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 28
+KSP final norm of residual 4.8363e-08
+Absolute residual norm = 4.83629847e-08
+U  L2 error norm  = 8.17792112e-06
+U  max error norm = 3.22094596e-05
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 2.2310e+09 max 2.2426e+08 min 2.2125e+08
+Current process memory:                                  total 2.0049e+09 max 2.0092e+08 min 1.9993e+08
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line

@@ -1,0 +1,36 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 4 MPI processes
+  type: da
+Processor [0] M 50 N 260 m 1 n 4 w 1 s 2
+X range of indices: 0 50, Y range of indices: 0 65
+Processor [1] M 50 N 260 m 1 n 4 w 1 s 2
+X range of indices: 0 50, Y range of indices: 65 130
+Processor [2] M 50 N 260 m 1 n 4 w 1 s 2
+X range of indices: 0 50, Y range of indices: 130 195
+Processor [3] M 50 N 260 m 1 n 4 w 1 s 2
+X range of indices: 0 50, Y range of indices: 195 260
+
+=================== Advection Equation ===================
+
+Using nx = 50, nt = 260
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 2.00000000e-02, ht = 3.86100386e-03
+
+=== Solve (T=[0.000,1.000], nt=260) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 10
+KSP final norm of residual 2.20589e-08
+Absolute residual norm = 2.20589429e-08
+U  L2 error norm  = 1.36810365e-04
+U  max error norm = 6.10265199e-04
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 7.8389e+08 max 1.9608e+08 min 1.9587e+08
+Current process memory:                                  total 7.6457e+08 max 1.9126e+08 min 1.9101e+08
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line

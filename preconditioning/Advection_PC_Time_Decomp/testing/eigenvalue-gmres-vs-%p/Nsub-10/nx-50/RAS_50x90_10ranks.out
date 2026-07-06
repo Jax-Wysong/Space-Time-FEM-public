@@ -1,0 +1,48 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 10 MPI processes
+  type: da
+Processor [0] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 0 9
+Processor [1] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 9 18
+Processor [2] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 18 27
+Processor [3] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 27 36
+Processor [4] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 36 45
+Processor [5] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 45 54
+Processor [6] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 54 63
+Processor [7] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 63 72
+Processor [8] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 72 81
+Processor [9] M 50 N 90 m 1 n 10 w 1 s 2
+X range of indices: 0 50, Y range of indices: 81 90
+
+=================== Advection Equation ===================
+
+Using nx = 50, nt = 90
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 2.00000000e-02, ht = 1.12359551e-02
+
+=== Solve (T=[0.000,1.000], nt=90) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 49
+KSP final norm of residual 1.05478e-06
+Absolute residual norm = 1.05478094e-06
+U  L2 error norm  = 5.54116302e-04
+U  max error norm = 2.12243545e-03
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 1.9324e+09 max 1.9354e+08 min 1.9256e+08
+Current process memory:                                  total 1.9274e+09 max 1.9304e+08 min 1.9211e+08
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line

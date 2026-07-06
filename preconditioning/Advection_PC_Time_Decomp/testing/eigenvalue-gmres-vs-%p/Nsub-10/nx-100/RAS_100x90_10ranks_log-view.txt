@@ -1,0 +1,160 @@
+****************************************************************************************************************************************************************
+***                                WIDEN YOUR WINDOW TO 160 CHARACTERS.  Use 'enscript -r -fCourier9' to print this document                                 ***
+****************************************************************************************************************************************************************
+
+------------------------------------------------------------------ PETSc Performance Summary: ------------------------------------------------------------------
+
+/mmfs1/home/jacks.local/jgwysong/Space-Time-FEM-public/preconditioning/Advection_PC_Time_Decomp/testing/.././Advection_1p1_PC on a linux-gnu-c-opt named node007 with 10 processes, by jgwysong@jacks.local on Fri May  1 20:19:26 2026
+Using Petsc Release Version 3.21.5, unknown 
+
+                         Max       Max/Min     Avg       Total
+Time (sec):           9.433e-02     1.003   9.409e-02
+Objects:              0.000e+00     0.000   0.000e+00
+Flops:                9.777e+07     1.081   9.702e+07  9.702e+08
+Flops/sec:            1.039e+09     1.084   1.031e+09  1.031e+10
+MPI Msg Count:        7.710e+02     1.992   6.966e+02  6.966e+03
+MPI Msg Len (bytes):  1.258e+06     1.987   1.636e+03  1.140e+07
+MPI Reductions:       8.250e+02     1.000
+
+Flop counting convention: 1 flop = 1 real number operation of type (multiply/divide/add/subtract)
+                            e.g., VecAXPY() for real vectors of length N --> 2N flops
+                            and VecAXPY() for complex vectors of length N --> 8N flops
+
+Summary of Stages:   ----- Time ------  ----- Flop ------  --- Messages ---  -- Message Lengths --  -- Reductions --
+                        Avg     %Total     Avg     %Total    Count   %Total     Avg         %Total    Count   %Total
+ 0:      Main Stage: 9.4073e-02 100.0%  9.7022e+08 100.0%  6.966e+03 100.0%  1.636e+03      100.0%  8.070e+02  97.8%
+
+------------------------------------------------------------------------------------------------------------------------
+See the 'Profiling' chapter of the users' manual for details on interpreting output.
+Phase summary info:
+   Count: number of times phase was executed
+   Time and Flop: Max - maximum over all processors
+                  Ratio - ratio of maximum to minimum over all processors
+   Mess: number of messages sent
+   AvgLen: average message length (bytes)
+   Reduct: number of global reductions
+   Global: entire computation
+   Stage: stages of a computation. Set stages with PetscLogStagePush() and PetscLogStagePop().
+      %T - percent time in this phase         %F - percent flop in this phase
+      %M - percent messages in this phase     %L - percent message lengths in this phase
+      %R - percent reductions in this phase
+   Total Mflop/s: 10e-6 * (sum of flop over all processors)/(max time over all processors)
+------------------------------------------------------------------------------------------------------------------------
+Event                Count      Time (sec)     Flop                              --- Global ---  --- Stage ----  Total
+                   Max Ratio  Max     Ratio   Max  Ratio  Mess   AvgLen  Reduct  %T %F %M %L %R  %T %F %M %L %R Mflop/s
+------------------------------------------------------------------------------------------------------------------------
+
+--- Event Stage 0: Main Stage
+
+BuildTwoSided          8 1.0 3.3937e-04 4.3 0.00e+00 0.0 4.5e+01 4.0e+00 8.0e+00  0  0  1  0  1   0  0  1  0  1     0
+BuildTwoSidedF         5 1.0 2.9219e-04 4.7 0.00e+00 0.0 1.8e+01 4.8e+03 5.0e+00  0  0  0  1  1   0  0  0  1  1     0
+MatMult              189 1.0 4.7986e-03 1.2 8.33e+06 1.1 3.4e+03 1.6e+03 0.0e+00  5  8 49 48  0   5  8 49 48  0 17133
+MatSolve             187 1.0 3.7553e-02 1.1 2.64e+07 1.4 0.0e+00 0.0e+00 0.0e+00 39 26  0  0  0  39 26  0  0  0  6739
+MatLUFactorSym         1 1.0 1.1667e-03 1.1 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  1  0  0  0  0   1  0  0  0  0     0
+MatLUFactorNum         1 1.0 1.8301e-03 1.3 3.20e+04 1.4 0.0e+00 0.0e+00 0.0e+00  2  0  0  0  0   2  0  0  0  0   168
+MatAssemblyBegin       6 1.0 3.1228e-04 2.4 0.00e+00 0.0 1.8e+01 4.8e+03 4.0e+00  0  0  0  1  0   0  0  0  1  0     0
+MatAssemblyEnd         6 1.0 4.2085e-04 1.3 6.00e+02 0.0 3.6e+01 4.0e+02 5.0e+00  0  0  1  0  1   0  0  1  0  1    13
+MatZeroEntries         2 1.0 8.8395e-05 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+DMCreateMat            1 1.0 1.5525e-03 1.6 0.00e+00 0.0 3.6e+01 4.0e+02 8.0e+00  1  0  1  0  1   1  0  1  0  1     0
+SFSetGraph             3 1.0 2.2768e-05 1.3 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFSetUp                3 1.0 1.7969e-04 1.4 0.00e+00 0.0 7.2e+01 4.1e+02 3.0e+00  0  0  1  0  0   0  0  1  0  0     0
+SFReduceBegin          1 1.0 1.3679e-05 1.4 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFReduceEnd            1 1.0 5.8800e-07 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFPack               380 1.0 1.6888e-04 2.5 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+SFUnpack             380 1.0 8.3152e-05 2.7 4.16e+02 2.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0    45
+VecMDot              186 1.0 1.4195e-02 1.6 3.13e+07 1.0 0.0e+00 0.0e+00 1.9e+02 11 32  0  0 23  11 32  0  0 23 22041
+VecNorm              189 1.0 1.0323e-03 1.2 3.40e+05 1.0 0.0e+00 0.0e+00 1.9e+02  1  0  0  0 23   1  0  0  0 23  3294
+VecScale             187 1.0 1.0369e-04 1.1 1.68e+05 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0 16232
+VecCopy              188 1.0 7.0485e-05 1.4 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecSet               376 1.0 1.8581e-04 1.3 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAXPY                3 1.0 1.4557e-05 2.0 5.40e+03 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  3710
+VecAYPX                1 1.0 2.0280e-06 2.0 9.00e+02 1.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0  4438
+VecMAXPY             187 1.0 5.3761e-03 1.0 3.16e+07 1.0 0.0e+00 0.0e+00 0.0e+00  6 33  0  0  0   6 33  0  0  0 58850
+VecAssemblyBegin       2 1.0 2.4932e-05 3.1 0.00e+00 0.0 0.0e+00 0.0e+00 1.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecAssemblyEnd         2 1.0 1.3460e-06 1.2 0.00e+00 0.0 0.0e+00 0.0e+00 0.0e+00  0  0  0  0  0   0  0  0  0  0     0
+VecScatterBegin      379 1.0 1.5655e-03 1.4 0.00e+00 0.0 6.8e+03 1.6e+03 0.0e+00  1  0 98 98  0   1  0 98 98  0     0
+VecScatterEnd        379 1.0 1.3700e-03 2.1 4.16e+02 2.0 0.0e+00 0.0e+00 0.0e+00  1  0  0  0  0   1  0  0  0  0     3
+VecNormalize         187 1.0 1.2163e-03 1.1 5.05e+05 1.0 0.0e+00 0.0e+00 1.9e+02  1  1  0  0 23   1  1  0  0 23  4149
+KSPSetUp               2 1.0 3.3798e-04 1.0 0.00e+00 0.0 0.0e+00 0.0e+00 1.2e+01  0  0  0  0  1   0  0  0  0  1     0
+KSPSolve               1 1.0 6.4112e-02 1.0 9.76e+07 1.1 6.7e+03 1.6e+03 7.5e+02 68 100 96 96 91  68 100 96 96 93 15103
+KSPGMRESOrthog       186 1.0 1.9947e-02 1.3 6.26e+07 1.0 0.0e+00 0.0e+00 1.9e+02 17 65  0  0 23  17 65  0  0 23 31378
+PCSetUp                1 1.0 3.5024e-03 1.2 3.94e+04 1.4 0.0e+00 0.0e+00 0.0e+00  4  0  0  0  0   4  0  0  0  0   108
+PCApply              187 1.0 4.0645e-02 1.1 2.64e+07 1.4 3.4e+03 1.7e+03 0.0e+00 42 26 48 49  0  42 26 48 49  0  6227
+------------------------------------------------------------------------------------------------------------------------
+
+Object Type          Creations   Destructions. Reports information only for process 0.
+
+--- Event Stage 0: Main Stage
+
+           Container     2              0
+    Distributed Mesh     1              0
+              Matrix     6              6
+           Index Set     6              6
+   IS L to G Mapping     1              0
+   Star Forest Graph     5              2
+     Discrete System     1              0
+           Weak Form     1              0
+              Vector   212            206
+              Viewer     1              1
+                SNES     1              1
+              DMSNES     1              0
+       Krylov Solver     2              2
+      Preconditioner     2              2
+========================================================================================================================
+Average time to get PetscTime(): 2.53e-08
+Average time for MPI_Barrier(): 2.9134e-06
+Average time for zero size MPI_Send(): 8.772e-07
+#PETSc Option Table entries:
+-da_processors_x 1 # (source: command line)
+-dm_view # (source: command line)
+-dump_matrices 0 # (source: command line)
+-IC 1 # (source: command line)
+-interface_width 1 # (source: command line)
+-ksp_atol 1e-4 # (source: command line)
+-ksp_converged_reason # (source: command line)
+-ksp_gmres_restart 200 # (source: command line)
+-ksp_rtol 1e-50 # (source: command line)
+-ksp_type gmres # (source: command line)
+-ksp_view_final_residual # (source: command line)
+-log_view :eigenvalue-gmres-vs-%p/Nsub-10/nx-100/RAS_100x90_10ranks_log-view.txt # (source: command line)
+-memory_view # (source: command line)
+-Nsub 10 # (source: command line)
+-nt 90 # (source: command line)
+-nx 100 # (source: command line)
+-overlap 1 # (source: command line)
+-save 0 # (source: command line)
+-slab_pc_ras 1 # (source: command line)
+-snes_type ksponly # (source: command line)
+-speed 1.0 # (source: command line)
+-sub_end_pc_factor_mat_solver_type mumps # (source: command line)
+-sub_mid_pc_factor_mat_solver_type mumps # (source: command line)
+-sub_start_pc_factor_mat_solver_type mumps # (source: command line)
+-t0 0.0 # (source: command line)
+-tF 1.0 # (source: command line)
+-use_shell_pc 1 # (source: command line)
+-xL 0.0 # (source: command line)
+-xR 1.0 # (source: command line)
+#End of PETSc Option Table entries
+Compiled without FORTRAN kernels
+Compiled with full precision matrices (default)
+sizeof(short) 2 sizeof(int) 4 sizeof(long) 8 sizeof(void*) 8 sizeof(PetscScalar) 8 sizeof(PetscInt) 4
+Configure options: --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90 --with-debugging=0 --with-shared-libraries --with-scalar-type=real --with-mpi=1 --download-cmake --download-scalapack --download-superlu --download-hypre=1 --download-fblaslapack=1 --download-mumps=1 --download-metis=1 --download-suitesparse=1 PETSC_ARCH=linux-gnu-c-opt --with-clean
+-----------------------------------------
+Libraries compiled on 2025-07-28 22:22:57 on cllogin002 
+Machine characteristics: Linux-5.14.0-162.6.1.el9_1.x86_64-x86_64-with-glibc2.34
+Using PETSc directory: /home/jacks.local/jgwysong/petsc-SP24
+Using PETSc arch: linux-gnu-c-opt
+-----------------------------------------
+
+Using C compiler: mpicc  -fPIC -Wall -Wwrite-strings -Wno-unknown-pragmas -Wno-lto-type-mismatch -Wno-stringop-overflow -fstack-protector -fvisibility=hidden -g -O  
+Using Fortran compiler: mpif90  -fPIC -Wall -ffree-line-length-none -ffree-line-length-0 -Wno-lto-type-mismatch -Wno-unused-dummy-argument -g -O    
+-----------------------------------------
+
+Using include paths: -I/home/jacks.local/jgwysong/petsc-SP24/include -I/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/include -I/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/include/suitesparse
+-----------------------------------------
+
+Using C linker: mpicc
+Using Fortran linker: mpif90
+Using libraries: -Wl,-rpath,/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -L/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -lpetsc -Wl,-rpath,/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -L/home/jacks.local/jgwysong/petsc-SP24/linux-gnu-c-opt/lib -Wl,-rpath,/apps/openmpi/5.0.5/lib -L/apps/openmpi/5.0.5/lib -Wl,-rpath,/cm/shared/apps/slurm/current/lib64 -L/cm/shared/apps/slurm/current/lib64 -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib/gcc/x86_64-linux-gnu/11.2.0 -L/cm/local/apps/gcc/11.2.0/lib/gcc/x86_64-linux-gnu/11.2.0 -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib64 -L/cm/local/apps/gcc/11.2.0/lib64 -Wl,-rpath,/mmfs1/cm/shared/apps_local/python/3.12/lib -L/mmfs1/cm/shared/apps_local/python/3.12/lib -Wl,-rpath,/cm/shared/apps_local/openmpi/5.0.5/lib -L/cm/shared/apps_local/openmpi/5.0.5/lib -Wl,-rpath,/cm/shared/apps/slurm/current/lib64/slurm -L/cm/shared/apps/slurm/current/lib64/slurm -Wl,-rpath,/cm/local/apps/gcc/11.2.0/lib -L/cm/local/apps/gcc/11.2.0/lib -lHYPRE -lspqr -lumfpack -lklu -lcholmod -lamd -ldmumps -lmumps_common -lpord -lpthread -lscalapack -lsuperlu -lflapack -lfblas -lmetis -lm -lX11 -lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi -lgfortran -lm -lgfortran -lm -lgcc_s -lquadmath -lstdc++ -lquadmath
+-----------------------------------------
+

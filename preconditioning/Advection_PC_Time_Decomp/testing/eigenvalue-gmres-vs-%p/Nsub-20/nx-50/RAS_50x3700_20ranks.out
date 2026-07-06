@@ -1,0 +1,68 @@
+Using overlap 1 and interface width 1, so stencil width = 2
+DM Object: 20 MPI processes
+  type: da
+Processor [0] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 0 185
+Processor [1] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 185 370
+Processor [2] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 370 555
+Processor [3] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 555 740
+Processor [4] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 740 925
+Processor [5] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 925 1110
+Processor [6] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 1110 1295
+Processor [7] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 1295 1480
+Processor [8] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 1480 1665
+Processor [9] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 1665 1850
+Processor [10] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 1850 2035
+Processor [11] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 2035 2220
+Processor [12] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 2220 2405
+Processor [13] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 2405 2590
+Processor [14] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 2590 2775
+Processor [15] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 2775 2960
+Processor [16] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 2960 3145
+Processor [17] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 3145 3330
+Processor [18] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 3330 3515
+Processor [19] M 50 N 3700 m 1 n 20 w 1 s 2
+X range of indices: 0 50, Y range of indices: 3515 3700
+
+=================== Advection Equation ===================
+
+Using nx = 50, nt = 3700
+xL = 0., xR = 1.
+t0 = 0., tF = 1.
+speed = 1.
+hx = 2.00000000e-02, ht = 2.70343336e-04
+
+=== Solve (T=[0.000,1.000], nt=3700) ===
+
+=== KSP solve (no SNES updates) ===
+    Linear solve converged due to CONVERGED_ATOL iterations 28
+KSP final norm of residual 6.52381e-08
+Absolute residual norm = 6.52381462e-08
+U  L2 error norm  = 1.20551999e-04
+U  max error norm = 5.29893080e-04
+Summary of Memory Usage in PETSc
+Maximum (over computational time) process memory:        total 4.2572e+09 max 2.1377e+08 min 2.1221e+08
+Current process memory:                                  total 3.9888e+09 max 1.9978e+08 min 1.9898e+08
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There are 2 unused database options. They are:
+Option left: name:-sub_end_pc_factor_mat_solver_type value: mumps source: command line
+Option left: name:-sub_mid_pc_factor_mat_solver_type value: mumps source: command line
